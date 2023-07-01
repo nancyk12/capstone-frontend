@@ -29,14 +29,14 @@ export default function Layout() {
           <br/>
             <Breadcrumbs/>
             <br/>
-          <main>
+          <div className="content-container">
+             <main>
                 <Outlet />
-          </main>
+             </main>
+          </div>
           <br/>
-          <div>
-            
-             <Footer/>
-           
+          <div className="footer-container">
+              <Footer/>
           </div>
         </div>
         

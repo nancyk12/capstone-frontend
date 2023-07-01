@@ -4,8 +4,6 @@ import {
   createRoutesFromElements,
   RouterProvider
 } from 'react-router-dom';
-//import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-//import  { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import "./App.css";
 import React from 'react';
@@ -81,16 +79,16 @@ function App() {
         <Route path="/login" element={<Login />}/>
 
         <Route path="courses" element={<CourseLayout />} errorElement={<CourseError />}>
-        <Route 
-        index 
-        element={<Courses />}
-        loader={coursesLoader}
-        />
-      <Route
-        path=":id"
-        element={<CourseDetails />}
-        loader={courseDetailsLoader}
-      />
+          <Route 
+            index 
+            element={<Courses />}
+            loader={coursesLoader}
+          />
+          <Route
+            path=":id"
+            element={<CourseDetails />}
+            loader={courseDetailsLoader}
+          />
         </Route>
 
         <Route path="*" element={<NotFound />}/>
