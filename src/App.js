@@ -1,33 +1,105 @@
-import './App.css';
+import { 
+  createBrowserRouter,
+  Route, 
+  createRoutesFromElements,
+  RouterProvider
+} from 'react-router-dom';
+//import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+//import  { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+import "./App.css";
 import React from 'react';
-import  { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-//import Layout from "./components/Layout"
-import Header from './components/Header';
+import ReactDom from "react-dom/client";
+import axios from "axios";
+
+import { useEffect, useState } from "react";
+import { Client } from "@petfinder/petfinder-js";
+
+//components
+import Error from "./components/Error";
 //import AboutUsDiv from './components/AboutUsDiv';
-import Footer from './components/Footer';
-import Store from './pages/Store';
-import Home from './pages/Home';
+
+//pages
+import Home from "./pages/Home";
+//courses
+import Courses, { coursesLoader } from "./pages/courses/Courses";
+import CourseDetails, { courseDetailsLoader } from "./pages/courses/CourseDetails";
+import CourseError from "./pages/courses/CourseError";
+//store
+import Store from './pages/store/Store';
+import ProductInfo from './pages/store/ProductInfo';
+
+//blogs
+import Blogs from "./pages/Blogs";
+
+//pets
+import Pets from "./pages/pets/Pets";
+import PetDetail from "./pages/pets/PetDetail";
+import AddToFavoritesButton from "./pages/pets/AddToFavoritesButton";
+import Favorites from "./pages/pets/Favorites";
+
+//contact
+import Contact from "./pages/Contact";
+
+//login
+import Login from "./pages/Login";
+import NotFound from './pages/NotFound';
+
+//layouts
+import RootLayout from "./layouts/RootLayout";
+import CourseLayout from "./layouts/CourseLayout";
+
 
 function App() {
+  // const [blogs, setBlogs] = useState([]);
+	// const [shouldRefresh, setShouldRefresh] = useState(false);
+
+	// const url = "http://localhost:5005";
+	// //useEffect first argument, takes in an anonymous callback function. second argument, dependency array
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		// fetch('url', { method: "POST"})
+	// 		//axios will parse the response from our backend back to us so we don't need response.json()
+	// 		const response = await axios.get(`${url}/blogs/all-blogs`);
+	// 		if (response.data.success) {
+	// 			setBlogs(response.data.blogs);
+	// 		}
+	// 	};
+	// 	fetchData();
+	// }, [shouldRefresh]);
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path= "/" element={<RootLayout />}>
+        <Route index element={<Home />}/>
+        <Route path="/blogs" element={<Blogs />}/>
+        <Route path="/pets" element={<Pets />}/>
+        <Route path="/pets/:id" element={<PetDetail />}/>
+        <Route path="/store" element={<Store />}/>
+        <Route path="/product/:id" element={<ProductInfo />}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/login" element={<Login />}/>
+
+        <Route path="courses" element={<CourseLayout />} errorElement={<CourseError />}>
+        <Route 
+        index 
+        element={<Courses />}
+        loader={coursesLoader}
+        />
+      <Route
+        path=":id"
+        element={<CourseDetails />}
+        loader={courseDetailsLoader}
+      />
+        </Route>
+
+        <Route path="*" element={<NotFound />}/>
+      </Route>
+  ))
+
   return (
    
-    <BrowserRouter>
-     <Header/>
-    <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="store" element={<Store/>}/> 
-    </Routes>
-    <Footer />
-    </BrowserRouter>
-     
-    
-   
-    
-  
-    
-
-      
-  
+    <RouterProvider router={router} />
  
   );
 }

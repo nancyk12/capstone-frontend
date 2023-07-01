@@ -15,9 +15,9 @@ const Header = () => {
               <img src="images/paw-logo-tan.png" alt="Logo" className="logo" />ADOPT-A-PET 
             </li>
             <li className="selected"><a href="/">Home</a></li> {/* Add the "selected" class */}
-            <li><a href="/about">About</a></li>
+            <li><a href="/about">Classes</a></li>
             <li><a href="/services">Services</a></li>
-            <li><a href="/pets">Pets</a></li>
+            <li><a href="/pets">Pets to Adopt</a></li>
             <li>
             <Link to="/store">Store</Link> {/* Link to the store */}
           </li>
