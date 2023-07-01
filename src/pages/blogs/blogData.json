@@ -1,0 +1,184 @@
+Adopt-A-Pet-Blog 
+
+{
+    "success": true,
+    "blogs": [
+        {
+            "_id": "644c6a01d1470893b18884e7",
+            "title": "Pepper, the dog",
+            "author": "Nancy",
+            "text": "Pepper, the dog, a beautiful cocker spaniel from the North Fort Myers Animal Shelter was adopted by the Smith Family. We wish the Smith Family years of happiness with their new family member, Pepper.",
+            "createAt": "2023-04-29T00:51:13.104Z",
+            "id": "c94ca3f5-4be1-4fc3-8637-1d53e7cdaa2b",
+            "__v": 0
+        },
+        {
+            "_id": "644c6aa0d1470893b18884ea",
+            "title": "Zippy, the cat",
+            "author": "Nancy",
+            "text": "Zippy, the cat, a beautiful calico from the Cape Coral Shelter was adopted by the Franklin Family. We wish the Franklin Family years of happiness with their new family member, Zippy.",
+            "createAt": "2023-04-29T00:53:52.570Z",
+            "id": "adf397df-0c19-41c5-9eec-eb34150f60ef",
+            "__v": 0
+        },
+        {
+            "_id": "644c6d87d1470893b18884f2",
+            "title": "Ginny Gu-Tang's new pet iguana",
+            "author": "Nancy",
+            "text": "Ginny Gu-Tang the famous instructor at Code Immersives has adopted a Freddy, an iguana from Daisy Hill Animal Shelter. We wish Ginny and Freddy years of happiness.",
+            "createAt": "2023-04-29T01:06:15.012Z",
+            "id": "2a7ada6c-cbdc-4837-b8c1-63bd71751895",
+            "__v": 0
+        },
+        {
+            "_id": "644c7103d1470893b18884f5",
+            "title": "Greyson Frazier adopts Petunia",
+            "author": "Nancy",
+            "text": "Greyson Frazier, the beloved instructor at Code Immersives, has adopted Petunia, a pot-bellied pig from the Oklahoma City Animal Shelter. We wish Greyson and Petunia years of happiness.",
+            "createAt": "2023-04-29T01:21:07.871Z",
+            "id": "e265a109-fc14-4e67-962e-fff9e5dddecd",
+            "__v": 0
+        },
+        {
+            "_id": "644ecab713cd48512784b2d8",
+            "title": "Leo the Cat Gets Adopted",
+            "author": "Nancy Kolde",
+            "text": "Sean Ellis, a college student from Sarasota, FL adopted Leo the Cat from Nate's Honor Animal Rescue and Shelter. Leo is a 4 month old male, gray, tabby kitten. We wish Sean and Leo many years of happiness. ",
+            "createAt": "2023-04-30T20:08:23.362Z",
+            "id": "5978605c-1a64-48e3-97da-f9d88a90d53d",
+            "__v": 0
+        },
+        {
+            "_id": "644f10b513cd48512784b32b",
+            "title": "Buddy gets adopted",
+            "author": "Nancy Kolde",
+            "text": "Buddy a beautiful Golden Retriever adult male was adopted from the Springfild Animal Rescue Shelter in Springfield, USA by the Simpson family. The Simpson children, Bart, Lisa, and Maggie love playing in the back yard with Buddy.  ",
+            "createAt": "2023-05-01T01:07:01.713Z",
+            "id": "40e4ce29-7ff7-4203-8646-1716ba656f98",
+            "__v": 0
+        },
+        {
+            "_id": "64515abd81862397874f0c5e",
+            "title": "The Wilson Family Adopts a Cat",
+            "author": "Nancy Kolde",
+            "text": "Dusty, a beautiful female gray tabby kitten was adopted by the Wilson family from the Rose Hill Animal Shelter in Rose Hill, Montana. We wish the Wilson family many years of happiness with Dusty. ",
+            "createAt": "2023-05-02T18:47:25.996Z",
+            "id": "409f0199-fe33-4c94-b733-52ee50d3e3ec",
+            "__v": 0
+        },
+        {
+            "_id": "645162b281862397874f0c62",
+            "title": "",
+            "author": "",
+            "text": "",
+            "createAt": "2023-05-02T19:21:22.228Z",
+            "id": "05408995-7a5b-42fd-ae27-d014956b98e5",
+            "__v": 0
+        },
+        {
+            "_id": "645169c281862397874f0c75",
+            "title": "Ginny Gu-Tang's new pet iguana",
+            "author": "Nancy Kolde",
+            "text": "Ginny Gu-Tang, the famous instructor at Code Immersives, has adopted Freddy, an iguana from Daisy Hill Animal Shelter. We wish Ginny and Freddy years of happiness.\",",
+            "createAt": "2023-05-02T19:51:30.847Z",
+            "id": "ad2c7152-36da-412b-9976-7d835dd361e5",
+            "__v": 0
+        },
+        {
+            "_id": "64526f3d221ebbe288123a18",
+            "title": "Jack, the Jack Russell Terrier",
+            "author": "Nancy Kolde",
+            "text": "Jack, the Jack Russell Terrier has been adopted by the Code Immersives beloved instructor, Ginny Gu-Tang.  We wish Jack years of happiness in his new home with Ginny and her family. ",
+            "createAt": "2023-05-03T14:27:09.631Z",
+            "id": "f4770c28-58d2-4ee5-bff2-ee565e7be2b8",
+            "__v": 0
+        }
+    ]
+}
+
+User Data
+
+_id
+644f519b568a474e06b54a99
+email
+"princess@me.com"
+hashedPassword
+"$2a$10$Z5Q1BDSVZGiHKC97SfbicuXQCnWgNv6UtULC8xwPkdMvOm7dmbwQy"
+role
+"user"
+id
+"53fb4087-8e53-4efd-9ef8-48724aeff015"
+__v
+0
+_id
+644f6401568a474e06b54aab
+email
+"nancyk12@mac.com"
+hashedPassword
+"$2a$10$nz3h7GDpDseT/V2956bx2e/lk9AX/QcJgJe.NTUmMVedDOGV1LuZu"
+role
+"user"
+id
+"8960f489-1080-47b6-8c76-ff0f522f0696"
+__v
+0
+_id
+644f6408568a474e06b54aaf
+email
+""
+hashedPassword
+"$2a$10$r7DenQpABktBFQq/nWNoEeq20Otr4G0KJREKCkvEt.tX0WoVrKnrO"
+role
+"user"
+id
+"8d36fa86-6df4-43c9-8678-e18ea725a9aa"
+__v
+0
+_id
+644ff47c1288f9651e14716c
+email
+"newuser@aol.com"
+hashedPassword
+"$2a$10$21HQW63nGL8SQj.RsWvAj.Dmw5BX5T9uNi7WFTgLbxepUed21Nzxi"
+role
+"user"
+id
+"4792d632-d41f-4c35-97ba-8a297c1d6091"
+__v
+0
+_id
+645000e41288f9651e14718e
+email
+"nancyk12@hotmail.com"
+hashedPassword
+"$2a$10$Uycf5UM0yP42oK02gHO6OeiTjIRQEQpBQvQCTa1wZBqwXii4J5KQy"
+role
+"user"
+id
+"38413a34-f683-4653-9b20-0653983022c8"
+__v
+0
+_id
+6450254dc86358e44d9b035d
+email
+"dog@dog.com"
+hashedPassword
+"$2a$10$SlPDmW9nDiORS.JLWug6GezmkIVZNUuJL55lIjCChJ2T.Ka/7GZL2"
+role
+"user"
+id
+"4e7bdd95-1f79-4bf8-96e8-5523b1269c07"
+__v
+0
+_id
+6450386a6d19a961514eef65
+email
+"cat@cat.com"
+hashedPassword
+"$2a$10$nuyQdpQWia3JxtIHLE.u.uzGPm9IOo0BAWSpOPHGCWV83VNPNadHC"
+role
+"user"
+id
+"f2cf0aad-145d-4391-a140-5a4c79cf3c04"
+__v
+0

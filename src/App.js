@@ -28,7 +28,9 @@ import Store from './pages/store/Store';
 import ProductInfo from './pages/store/ProductInfo';
 
 //blogs
-import Blogs from "./pages/Blogs";
+import Blogs from "./pages/blogs/Blogs";
+import BlogForm from "./pages/blogs/BlogForm";
+//import EditBlog from "./pages/blogs/EditBlog";
 
 //pets
 import Pets from "./pages/pets/Pets";
@@ -41,6 +43,7 @@ import Contact from "./pages/Contact";
 
 //login
 import Login from "./pages/Login";
+//import PrivatePage from "./pages/PrivatePage";
 import NotFound from './pages/NotFound';
 
 //layouts
@@ -49,10 +52,10 @@ import CourseLayout from "./layouts/CourseLayout";
 
 
 function App() {
-  // const [blogs, setBlogs] = useState([]);
-	// const [shouldRefresh, setShouldRefresh] = useState(false);
+  const [blogs, setBlogs] = useState([]);
+	const [shouldRefresh, setShouldRefresh] = useState(false);
 
-	// const url = "http://localhost:5005";
+	//const url = "http://localhost:5005";
 	// //useEffect first argument, takes in an anonymous callback function. second argument, dependency array
 	// useEffect(() => {
 	// 	const fetchData = async () => {
@@ -70,7 +73,37 @@ function App() {
     createRoutesFromElements(
       <Route path= "/" element={<RootLayout />}>
         <Route index element={<Home />}/>
-        <Route path="/blogs" element={<Blogs />}/>
+
+        <Route 
+              path="blog" 
+              element={<Blogs
+              blogsProps={blogs}
+							setShouldRefreshProps={setShouldRefresh}
+						/>
+					}
+				  />
+
+          {/* <Route path="/home" element={<PrivatePage />}>*/}
+            <Route
+              path="blog-form"
+              element={
+                <BlogForm
+                  setBlogsProps={setBlogs}
+                  setShouldRefreshProps={setShouldRefresh}
+                />
+              }
+            />
+            {/* <Route
+              path="edit-blog/:id"
+              element={
+                <EditBlog
+                  blogsProps={blogs}
+                  setShouldRefreshProps={setShouldRefresh}
+                />
+              }
+            /> */}
+          
+        {/*</Route>   */}
         <Route path="/pets" element={<Pets />}/>
         <Route path="/pets/:id" element={<PetDetail />}/>
         <Route path="/store" element={<Store />}/>
