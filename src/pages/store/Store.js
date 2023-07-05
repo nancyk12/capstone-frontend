@@ -1,10 +1,16 @@
-import React, {  useState } from 'react';
+import React, {  useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import products from './products.json';
-import ProductInfo from './ProductInfo';
-const Store = () => {
+import ShoppingCart from './ShoppingCart';
+import { CartContext } from './CartContext';
+//import { productsLoader } from './products';
+
+export default function Store() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(products);
+  // Shopping cart state
+  const [cart, setCart] = useState([]);
+
 
   const handleSearch = (event) => {
     const searchValue = event.target.value;
@@ -31,6 +37,18 @@ const Store = () => {
   5.https://www.petsmart.com/small-pet/litter-and-bedding/litter-and-bedding/carefresh-special-edition-small-pet-bedding---tutti-frutti-5278506.html?gclsrc=aw.ds&gclid=Cj0KCQjwj_ajBhCqARIsAA37s0y3gBXrQA_eokVDKZp5Jl1pfTEUDcJSXPt3-dB8O11iNKKPQJ8hykIaAvD4EALw_wcB
   6. https://www.chewy.com/zoo-med-repti-deep-dome-lamp/dp/190107?utm_source=google-product&utm_medium=cpc&utm_campaign=18806583589&utm_content=Zoo%20Med&utm_term=&gclid=Cj0KCQjwj_ajBhCqARIsAA37s0zu8K3v8jx9F1rZPiWIcE3rGH6RdWfAxGrho3zeR-lwzrYVjlVJzaQaAqnIEALw_wcB
   */
+
+   
+    // Function to add the product to the cart
+  // const addToCart = (product) => {
+  //   setCart([...cart, product]);
+  // };
+
+  const { addToCart } = useContext(CartContext);
+    
+  
+
+
   return (
    <div className='store-main-container'>
     <h1>The Pet Supply Store</h1>
@@ -48,18 +66,18 @@ const Store = () => {
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
             <p>${product.price.toFixed(2)}</p>
-            {/* <Link to={`/products/${product.id}`}>More Info</Link> */}
-            <Link to={`/products/${product.id}`}>More Info</Link>
-
-            {/* <Link to={`/pets/${animal.id}`}></Link> */}
-            <button>Add to Cart</button>
-
+            <Link to={`/product/${product.id}`}>More Info</Link>
+            <button onClick={() => addToCart(product)}>Add to Cart</button> 
+            
           </div>
         ))}
       </div>
     </div>
+      <Link to="/cart">Go to Cart</Link>
+      <br/>
+      <ShoppingCart cartItems={cart} />
     </div>  
   );
 };
 
-export default Store;
+//export default Store;

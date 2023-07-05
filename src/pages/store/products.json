@@ -4,42 +4,48 @@
       "name": "Cat Collar",
       "price": 9.99,
       "image": "https://i5.walmartimages.com/asr/734698d6-e000-4372-a411-b4e560aedfd2.bbcc4d8bf4c5bf4e80743a7c8d3da6d1.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-      "category": "Cat"
+      "category": "Cat",
+      "description": "This is a cat collar"
     },
     {
       "id": 2,
       "name": "Dog Leash",
       "price": 14.99,
       "image": "https://image.chewy.com/is/image/catalog/108371_MAIN._AC_SL1200_V1518213824_.jpg",
-      "category": "Dog"
+      "category": "Dog",
+      "description": "This is a dog leash"
     },
     {
       "id": 3,
       "name": "Bird Cage",
       "price": 49.99,
       "image": "https://image.chewy.com/is/image/catalog/333108_MAIN._AC_SL1200_V1634075481_.jpg",
-      "category": "Bird"
+      "category": "Bird",
+      "description": "This is a bird cage"
     },
     {
       "id": 4,
       "name": "Fish Tank",
       "price": 29.99,
       "image": "https://image.chewy.com/is/image/catalog/288024_MAIN._AC_SL1200_V1618524173_.jpg",
-      "category": "Fish"
+      "category": "Fish",
+      "description": "This is a fish tank"
     },
     {
       "id": 5,
       "name": "Small Animal Bedding",
       "price": 7.99,
       "image": "https://s7d2.scene7.com/is/image/PetSmart/5278506?$CLEARjpg$",
-      "category": "Small Animal"
+      "category": "Small Animal",
+      "description":"This is bedding for small animals"
     },
     {
       "id": 6,
       "name": "Reptile Heat Lamp",
       "price": 19.99,
       "image": "https://image.chewy.com/is/image/catalog/163399_MAIN._AC_SL1200_V1678459692_.jpg",
-      "category": "Reptile"
+      "category": "Reptile",
+      "description": "This is a reptile heat lamp"
     }
   ]
 

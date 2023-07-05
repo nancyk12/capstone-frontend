@@ -19,6 +19,8 @@ import Error from "./components/Error";
 
 //pages
 import Home from "./pages/Home";
+import Payment from "./pages/Payment";
+
 //courses
 import Courses, { coursesLoader } from "./pages/courses/Courses";
 import CourseDetails, { courseDetailsLoader } from "./pages/courses/CourseDetails";
@@ -26,6 +28,9 @@ import CourseError from "./pages/courses/CourseError";
 //store
 import Store from './pages/store/Store';
 import ProductInfo from './pages/store/ProductInfo';
+import ShoppingCart from './pages/store/ShoppingCart';
+import { CartProvider } from './pages/store/CartContext';
+
 
 //blogs
 import Blogs from "./pages/blogs/Blogs";
@@ -69,10 +74,17 @@ function App() {
 	// 	fetchData();
 	// }, [shouldRefresh]);
 
+  const [cart, setCart] = useState([]);
+  // Function to add the product to the cart
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path= "/" element={<RootLayout />}>
         <Route index element={<Home />}/>
+        <Route path="payment" element={<Payment />}/>
 
         <Route 
               path="blog" 
@@ -106,8 +118,11 @@ function App() {
         {/*</Route>   */}
         <Route path="/pets" element={<Pets />}/>
         <Route path="/pets/:id" element={<PetDetail />}/>
+        
         <Route path="/store" element={<Store />}/>
         <Route path="/product/:id" element={<ProductInfo />}/>
+        <Route path="/cart" element={<ShoppingCart cartItems={cart}  />}/>
+        
         <Route path="/contact" element={<Contact />}/>
         <Route path="/login" element={<Login />}/>
 

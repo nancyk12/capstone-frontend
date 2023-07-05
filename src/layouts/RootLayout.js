@@ -12,11 +12,12 @@ export default function Layout() {
           <header>
             <nav>
               <ul>
-                <li className="logo-container">
+                <li className="logo-container"><NavLink to="/">
                    <img src="images/paw-logo-tan.png" alt="Logo" className="logo" />ADOPT-A-PET 
-                </li>
+                   </NavLink></li>
               
                  <li><NavLink to="/">Home</NavLink></li>
+                 <li><NavLink to="/payment">Payment</NavLink></li>
                  <li><NavLink to="/courses">Classes</NavLink></li>
                  <li><NavLink to="/blogs">Blogs</NavLink></li>
                  <li><NavLink to="/pets">Pets to Adopt</NavLink></li>
