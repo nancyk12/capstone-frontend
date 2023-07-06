@@ -203,8 +203,6 @@ main {
   border: 1px solid #FFFFFF;
 }
 
-
-
 .about-us {
   background-color: #F5E4C3;
   color: #685454;
@@ -266,7 +264,141 @@ main {
   .home-card button:hover {
     background-color: #685454; /* Set the background color on hover */
   }
+/** Login **/
 
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.login-form-container {
+  /* justify-content: center; */
+  align-items: center;
+  background-color: #F5E4C3;
+  padding: 32px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 450px;
+}
+
+.login-form-heading {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #685454;
+  text-align: center;
+}
+
+.login-input-field {
+  align-items: center;
+  width: 100%;
+  height: 55px;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #685454;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.login-password-input-container {
+  position: relative;
+}
+.login-password-toggle-button {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.login-password-toggle-button svg {
+  width: 20px;
+  height: 20px;
+  fill: #555;
+}
+
+.login-password-toggle-button:hover svg {
+  fill: #1976d2;
+}
+
+.login-password-toggle-button:focus {
+  outline: none;
+}
+
+.login-texterea-field {
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #685454;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.login-checkbox-label {
+  display: flex;
+  /* align-items: center; */
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.login-checkbox-input {
+  margin-right: 8px;
+  color: #685454
+}
+
+.login-submit-button {
+  width: 100%;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #EA8A8A;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-submit-button:hover {
+  background-color: #685454;
+  border: 1px solid #FFFFFF;
+}
+
+.login-submit-button.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.login-loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.login-link {
+  color: #685454;
+  text-decoration: none;
+}
 
 /** PET PAGES **/
 
@@ -822,7 +954,7 @@ background-color: #beae9d;
 } 
 
 /* contact form */
-form {
+.form {
   margin-top: 30px;
   margin-left: 60px;
 }
@@ -852,72 +984,6 @@ form button {
 
 form button:hover {
   background-color: #685454; /* Set the background color on hover */
-}
-
-/* Login */
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-inline: 27px;
-  margin-top: 84px;
-  background-color: #F5E4C3;
-  border-radius: 6px;
-  /* box-shadow: 0 0 0 0.25rem #beae9d; */
-  padding: 20px;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;    
-}
-
-.login-form > input {
-  border: 1px solid rgba(209, 213, 219);
-  height: 40px;
-  text-indent: 10px;
-  font-family: "Inter", sans-serif;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-  font-weight: 400;
-}
-
-.login-form > input:focus {
-  outline: none;
-}
-
-.login-form > input:first-of-type {
-  border-radius: 6px 6px 0px 0px;
-}
-
-.login-form > input:last-of-type {
-  border-radius: 0px 0px 6px 6px;
-  border-top: none;
-}
-
-.login-form > button {
-  background-color: #EA8A8A;;
-  border: none;
-  border-radius: 6px;
-  height: 55px;
-  margin-top: 22px;
-  color: white;
-  font-family: "Inter", sans-serif;
-}
-
-.login-form-button {
-  background-color: #EA8A8A;;
-  border: none;
-  border-radius: 6px;
-  height: 55px;
-  margin-top: 22px;
-  color: white;
-  font-family: "Inter", sans-serif;
-}
-
-.red {
-  color: #cc0000;
 }
 
 /* Blog */

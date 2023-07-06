@@ -5,7 +5,7 @@ import ShoppingCart from './ShoppingCart';
 import { CartContext } from './CartContext';
 //import { productsLoader } from './products';
 
-export default function Store() {
+export default function Shop() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(products);
   // Shopping cart state

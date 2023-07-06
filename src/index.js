@@ -3,14 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { CartProvider } from './pages/store/CartContext';
+import { ThemeProvider } from '@emotion/react';
+import theme from './theme';
+import { CssBaseline } from '@mui/material';
+import store from './redux/store'
+import {Provider} from 'react-redux'
+import { CartProvider } from './pages/shop/CartContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CartProvider>
-      <App />
-    </CartProvider>
+    <ThemeProvider theme={theme}> 
+    {/* CSSBaseline for browsder compatibility */}
+      <CssBaseline /> 
+        <Provider store={store}>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

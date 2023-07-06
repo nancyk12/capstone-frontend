@@ -26,10 +26,10 @@ import Courses, { coursesLoader } from "./pages/courses/Courses";
 import CourseDetails, { courseDetailsLoader } from "./pages/courses/CourseDetails";
 import CourseError from "./pages/courses/CourseError";
 //store
-import Store from './pages/store/Store';
-import ProductInfo from './pages/store/ProductInfo';
-import ShoppingCart from './pages/store/ShoppingCart';
-import { CartProvider } from './pages/store/CartContext';
+import Shop from './pages/shop/Shop';
+import ProductInfo from './pages/shop/ProductInfo';
+import ShoppingCart from './pages/shop/ShoppingCart';
+import { CartProvider } from './pages/shop/CartContext';
 
 
 //blogs
@@ -47,7 +47,8 @@ import Favorites from "./pages/pets/Favorites";
 import Contact from "./pages/Contact";
 
 //login
-import Login from "./pages/Login";
+import Login from "./components/Login";
+import Register from "./components/Register";
 //import PrivatePage from "./pages/PrivatePage";
 import NotFound from './pages/NotFound';
 
@@ -119,12 +120,12 @@ function App() {
         <Route path="/pets" element={<Pets />}/>
         <Route path="/pets/:id" element={<PetDetail />}/>
         
-        <Route path="/store" element={<Store />}/>
+        <Route path="/shop" element={<Shop />}/>
         <Route path="/product/:id" element={<ProductInfo />}/>
         <Route path="/cart" element={<ShoppingCart cartItems={cart}  />}/>
         
         <Route path="/contact" element={<Contact />}/>
-        <Route path="/login" element={<Login />}/>
+        
 
         <Route path="courses" element={<CourseLayout />} errorElement={<CourseError />}>
           <Route 
@@ -138,6 +139,14 @@ function App() {
             loader={courseDetailsLoader}
           />
         </Route>
+        <Route 
+        path="/login" 
+        element={<Login />}
+        />
+        <Route path="/register" 
+        element={<Register />}
+        />
+
 
         <Route path="*" element={<NotFound />}/>
       </Route>

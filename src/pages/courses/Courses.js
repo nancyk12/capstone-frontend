@@ -25,3 +25,5 @@ export const coursesLoader = async () => {
   }
   return res.json()
 }
+
+// put in terminal to get course data: json-server -p 4002 -w ./data/db1.json
