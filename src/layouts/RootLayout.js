@@ -21,6 +21,7 @@ export default function Layout() {
                  <li><NavLink to="/courses">Classes</NavLink></li>
                  <li><NavLink to="/blogs">Blogs</NavLink></li>
                  <li><NavLink to="/pets">Pets to Adopt</NavLink></li>
+                 <li><NavLink to="/shop-b">Shop B</NavLink></li>
                  <li><NavLink to="/shop">Store</NavLink></li>
                  <li><NavLink to="/contact">Contact</NavLink></li>
                  <li><NavLink to="/login-home">Login</NavLink></li>

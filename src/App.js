@@ -27,13 +27,16 @@ import CourseDetails, { courseDetailsLoader } from "./pages/courses/CourseDetail
 import CourseError from "./pages/courses/CourseError";
 
 //store
+// import Shop from './pages/shop/Shop';
+// import ProductInfo from './pages/shop/ProductInfo';
+// import ShoppingCart from './pages/shop/ShoppingCart';
+
+
+// //ShopB 
 import Shop from './pages/shop/Shop';
 import ProductInfo from './pages/shop/ProductInfo';
 import ShoppingCart from './pages/shop/ShoppingCart';
 
-
-// //ShopB 
-// import ShopB from './components/ShopB';
 
 //blogs
 import Blogs from "./pages/blogs/Blogs";
@@ -125,10 +128,14 @@ function App() {
         <Route path="/pets/:id" element={<PetDetail />}/>
         <Route path="/favorites" element={<Favorites />}/>
 
-        <Route path="/shop" element={<Shop />}/>
+        {/* <Route path="/shop" element={<Shop />}/>
         <Route path="/product/:id" element={<ProductInfo />}/>
         {/* <Route path="/cart" element={<ShoppingCart cartItems={cart}  />}/> */}
-        <Route path="/cart" element={<ShoppingCart  />}/>
+        {/*<Route path="/cart" element={<ShoppingCart  />}/> */}
+
+        <Route path="/shop" element={<Shop />}/>
+        <Route path="/product/:id" element={<ProductInfo />}/>
+        <Route path="/cart" element={<ShoppingCart />}/>
 
         <Route path="courses" element={<CourseLayout />} errorElement={<CourseError />}>
           <Route 

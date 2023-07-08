@@ -1,4 +1,3 @@
-// productSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const productSlice = createSlice({
@@ -39,14 +38,11 @@ const productSlice = createSlice({
   },
 });
 
-
 export const {
   addToCart,
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
-
-  
 } = productSlice.actions;
 
 export default productSlice.reducer;
