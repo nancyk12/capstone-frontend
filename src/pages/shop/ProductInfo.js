@@ -1,15 +1,20 @@
 import React from 'react';
 import { useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { CartContext } from './CartContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from './../../redux/productSlice';
 import products from './products.json';
 import ShoppingCart from './ShoppingCart';
 
 const ProductInfo = () => {
   const { id } = useParams();
-  const { addToCart } = useContext(CartContext);
+  const dispatch = useDispatch;
   const product = products.find((product) => product.id === parseInt(id));
   const [cart, setCart] = useState([]);
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
 
   // const addToCart = () => {
   //   setCart([...cart, product]);
@@ -25,9 +30,9 @@ const ProductInfo = () => {
       <img src={product.image} alt={product.name} />
       <p>${product.price.toFixed(2)}</p>
       <p>{product.description}</p>
-      <button onClick={addToCart}>Add to Cart</button>
+      <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
       <Link to="/cart">Go to Cart</Link>
-      <ShoppingCart cartItems={cart}/>
+      <ShoppingCart />
     </div>
   );
 };

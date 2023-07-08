@@ -1,16 +1,16 @@
 import React, {  useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from './../../redux/productSlice';
 import products from './products.json';
 import ShoppingCart from './ShoppingCart';
-import { CartContext } from './CartContext';
 //import { productsLoader } from './products';
 
 export default function Shop() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredProducts, setFilteredProducts] = useState(products);
-  // Shopping cart state
-  const [cart, setCart] = useState([]);
 
+  const dispatch = useDispatch();
 
   const handleSearch = (event) => {
     const searchValue = event.target.value;
@@ -29,6 +29,10 @@ export default function Shop() {
     setFilteredProducts(products);
   };
 
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  }
+
     /* websites for the pet product photos
   1.  https://www.walmart.com/ip/TCBOYING-Breakaway-Cat-Collar-with-Bell-Mixed-Colors-Reflective-Cat-Collars-Ideal-Size-Pet-Collars-for-Cats-or-Small-Dogs/2638140495
   2. https://www.chewy.com/chais-choice-premium-outdoor/dp/135771?utm_source=google-product&utm_medium=cpc&utm_campaign=20027453190&utm_content=Chai%27s%20Choice&utm_term=&gclid=Cj0KCQjwj_ajBhCqARIsAA37s0zJ3ZjpSxDTcqe2f4nvTpZxURuf5VxQxlk3dwaR7u3gttO2Y_U7f90aAlAtEALw_wcB
@@ -44,22 +48,29 @@ export default function Shop() {
   //   setCart([...cart, product]);
   // };
 
-  const { addToCart } = useContext(CartContext);
-    
-  
-
 
   return (
    <div className='store-main-container'>
     <h1>The Pet Supply Store</h1>
     <div className="store-search-bar">
-    <input type="text" placeholder="Search..." value={searchTerm} onChange={handleSearch} />
-        <button className="store-search-button" onClick={handleSearchClick}>Search</button>
-        <button className="store-search-reset-button" onClick={handleResetClick}>Reset</button>
-      </div>
+      <input type="text" 
+        placeholder="Search..." 
+        value={searchTerm} 
+        onChange={handleSearch}
+      />
+      <button className="store-search-button" onClick={handleSearchClick}>
+        Search
+      </button>
+      <button 
+        className="store-search-reset-button" 
+        onClick={handleResetClick}
+      > 
+        Reset
+      </button>
+    </div>
 
     
-      <div className="store-container">
+     <div className="store-container">
       <div className="item-card-container">
         {filteredProducts.map((product) => (
           <div className="item-card" key={product.id}>
@@ -67,16 +78,17 @@ export default function Shop() {
             <h3>{product.name}</h3>
             <p>${product.price.toFixed(2)}</p>
             <Link to={`/product/${product.id}`}>More Info</Link>
-            <button onClick={() => addToCart(product)}>Add to Cart</button> 
-            
+            <button onClick={() => addToCart(product)}>
+              Add to Cart
+            </button> 
           </div>
         ))}
       </div>
     </div>
-      <Link to="/cart">Go to Cart</Link>
-      <br/>
-      <ShoppingCart cartItems={cart} />
-    </div>  
+    <Link to="/cart">Go to Cart</Link>
+    <br/>
+    <ShoppingCart  />
+   </div>  
   );
 };
 

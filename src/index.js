@@ -8,7 +8,7 @@ import theme from './theme';
 import { CssBaseline } from '@mui/material';
 import store from './redux/store'
 import {Provider} from 'react-redux'
-import { CartProvider } from './pages/shop/CartContext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,9 +17,7 @@ root.render(
     {/* CSSBaseline for browsder compatibility */}
       <CssBaseline /> 
         <Provider store={store}>
-          <CartProvider>
             <App />
-          </CartProvider>
         </Provider>
     </ThemeProvider>
   </React.StrictMode>

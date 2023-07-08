@@ -303,6 +303,9 @@ main {
   margin-bottom: 16px;
 }
 
+.login-label-span {
+  margin-bottom: 10px;
+}
 .login-password-input-container {
   position: relative;
 }
@@ -952,39 +955,6 @@ background-color: #beae9d;
   border-radius: 4px;
   margin: 20px 0;
 } 
-
-/* contact form */
-.form {
-  margin-top: 30px;
-  margin-left: 60px;
-}
-form input, form label span, form textarea {
-  display: block;
-}
-form input, form textarea {
-  margin-bottom: 30px;
-  padding: 8px;
-  border-radius: 4px;
-  border: 1px solid #000;
-  width: 300px;
-  color: #000000;
-}
-form label span {
-  margin-bottom: 10px;
-}
-form button {
-  padding: 10px 20px;
-  font-size: 16px; /* Adjust the font size as needed */
-  background-color: #EA8A8A; /* Set the background color for the button */
-  color: #ffffff; /* Set the text color for the button */
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #685454; /* Set the background color on hover */
-}
 
 /* Blog */
 .blog-link-wrapper {

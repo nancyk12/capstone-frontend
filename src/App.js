@@ -25,12 +25,15 @@ import Payment from "./pages/Payment";
 import Courses, { coursesLoader } from "./pages/courses/Courses";
 import CourseDetails, { courseDetailsLoader } from "./pages/courses/CourseDetails";
 import CourseError from "./pages/courses/CourseError";
+
 //store
 import Shop from './pages/shop/Shop';
 import ProductInfo from './pages/shop/ProductInfo';
 import ShoppingCart from './pages/shop/ShoppingCart';
-import { CartProvider } from './pages/shop/CartContext';
 
+
+// //ShopB 
+// import ShopB from './components/ShopB';
 
 //blogs
 import Blogs from "./pages/blogs/Blogs";
@@ -47,8 +50,9 @@ import Favorites from "./pages/pets/Favorites";
 import Contact from "./pages/Contact";
 
 //login
-import Login from "./components/Login";
-import Register from "./components/Register";
+import LoginHome from "./pages/login/LoginHome";
+import Login from "./pages/login/Login";
+import Register from "./pages/login/Register";
 //import PrivatePage from "./pages/PrivatePage";
 import NotFound from './pages/NotFound';
 
@@ -61,25 +65,25 @@ function App() {
   const [blogs, setBlogs] = useState([]);
 	const [shouldRefresh, setShouldRefresh] = useState(false);
 
-	//const url = "http://localhost:5005";
-	// //useEffect first argument, takes in an anonymous callback function. second argument, dependency array
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		// fetch('url', { method: "POST"})
-	// 		//axios will parse the response from our backend back to us so we don't need response.json()
-	// 		const response = await axios.get(`${url}/blogs/all-blogs`);
-	// 		if (response.data.success) {
-	// 			setBlogs(response.data.blogs);
-	// 		}
-	// 	};
-	// 	fetchData();
-	// }, [shouldRefresh]);
+	const url = "http://localhost:5005";
+	//useEffect first argument, takes in an anonymous callback function. second argument, dependency array
+	useEffect(() => {
+		const fetchData = async () => {
+			// fetch('url', { method: "POST"})
+			//axios will parse the response from our backend back to us so we don't need response.json()
+			const response = await axios.get(`${url}/blogs/all-blogs`);
+			if (response.data.success) {
+				setBlogs(response.data.blogs);
+			}
+		};
+		fetchData();
+	}, [shouldRefresh]);
 
-  const [cart, setCart] = useState([]);
-  // Function to add the product to the cart
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
+  // const [cart, setCart] = useState([]);
+  // // Function to add the product to the cart
+  // const addToCart = (product) => {
+  //   setCart([...cart, product]);
+  // };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -119,13 +123,12 @@ function App() {
         {/*</Route>   */}
         <Route path="/pets" element={<Pets />}/>
         <Route path="/pets/:id" element={<PetDetail />}/>
-        
+        <Route path="/favorites" element={<Favorites />}/>
+
         <Route path="/shop" element={<Shop />}/>
         <Route path="/product/:id" element={<ProductInfo />}/>
-        <Route path="/cart" element={<ShoppingCart cartItems={cart}  />}/>
-        
-        <Route path="/contact" element={<Contact />}/>
-        
+        {/* <Route path="/cart" element={<ShoppingCart cartItems={cart}  />}/> */}
+        <Route path="/cart" element={<ShoppingCart  />}/>
 
         <Route path="courses" element={<CourseLayout />} errorElement={<CourseError />}>
           <Route 
@@ -140,11 +143,16 @@ function App() {
           />
         </Route>
         <Route 
-        path="/login" 
-        element={<Login />}
+          path="login-home" 
+          element={<LoginHome />}
         />
-        <Route path="/register" 
-        element={<Register />}
+        <Route 
+          path="/login" 
+          element={<Login />}
+        />
+        <Route
+          path="/register" 
+          element={<Register />}
         />
 
 

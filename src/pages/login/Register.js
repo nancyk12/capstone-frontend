@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { registerUser, resetStatus } from '../redux/usersSlice'
+import { registerUser, resetStatus } from '../../redux/usersSlice'
 import { CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { registrationValidator } from '../lib/validator';
+import { registrationValidator } from '../../lib/validator';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 

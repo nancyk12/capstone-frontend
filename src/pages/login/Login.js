@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { login, resetStatus } from '../redux/usersSlice';
+import { login, resetStatus } from '../../redux/usersSlice';
 import { CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';

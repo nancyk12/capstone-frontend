@@ -8,7 +8,7 @@ export default function Contact() {
         <h1 className="login-form-heading">Contact Us</h1>
         <Form method="post" action="/help/contact">
           <label>
-            <span>Your email:</span>
+            <span className="login-label-span">Your email:</span>
             <input 
               type="email" 
               name="email" 
@@ -18,7 +18,7 @@ export default function Contact() {
               />
           </label>
           <label>
-            <span>Your message:</span>
+            <span className="login-label-span">Your message:</span>
             <textarea 
               name="message" 
               required
