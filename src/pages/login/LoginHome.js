@@ -1,39 +1,39 @@
 import React, {useEffect} from 'react'
-import { Box, Container, Typography, Button } from '@mui/material'
+//import { Box, Container, Typography, Button } from '@mui/material'
 import {useSelector, useDispatch} from 'react-redux'
 import {authCheck, logout} from '../../redux/authSlice'
 
 const LoginHome = () => {
   const dispatch = useDispatch()
-  const auth = useSelector( state => state.auth.isAuth )
-  const users = useSelector( state => state.users )
+  const isAuth = useSelector( state => state.auth.isAuth )
+  const user = useSelector( state => state.users )
 
-  useEffect( () => {
-    dispatch(authCheck())
-  }, [auth])
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
-    <Container maxWidth='lg'>
-        <Box>
-          
-            <Typography variant='h1'>
-                {auth ? <>Welcome: {users.firstname}</> : <>Please Login</> }
-
-            </Typography>
-        </Box>
-        {auth ? 
-          <>
-          <Button variant="contained" onClick={() => dispatch(logout())}>Logout</Button>
-          </>
-          : 
-          <>
-          <Button variant="contained" href="/login">Login</Button>
-          <Button variant="contained" href="/register">Register</Button>
-          </>
-        }
-        
-
-    </Container>
-  )
-}
+    <div className="login-home-container">
+      <h1 className="login-home-heading">
+        {isAuth ? `Hi, ${user.firstname}` : 'Please Login'}
+      </h1>
+      {isAuth ? (
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
+      ) : (
+        <>
+          <a href="/login" className="login-button">
+            Login
+          </a>
+          <a href="/register" className="register-button">
+            Register
+          </a>
+        </>
+      )}
+    </div>
+  );
+};
 
 export default LoginHome;

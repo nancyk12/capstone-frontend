@@ -2,7 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import "./CustomShoppingCartIcon.css";
+
 
 function CustomShoppingCartIcon() {
   const cartItems = useSelector((state) => state.cart);

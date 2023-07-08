@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
 import CustomShoppingCartIcon from "../components/CustomShoppingCartIcon";
 import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from "../components/Footer"
@@ -8,6 +9,16 @@ import Footer from "../components/Footer"
 export default function Layout() {
   const cartItems = useSelector((state) => state.cart);
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const user = useSelector((state) => state.users);
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
 
     return (
       <> 
@@ -32,7 +43,18 @@ export default function Layout() {
                   )}
                   </NavLink></li>
                  <li><NavLink to="/contact">Contact</NavLink></li>
-                 <li><NavLink to="/login-home">Login</NavLink></li>
+                 <li>
+        {isAuth ? (
+          <>
+            <span>Hi, {user.firstname} </span>
+            <NavLink to="/" onClick={handleLogout}>
+              Sign-Out
+            </NavLink>
+          </>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
+      </li>
               </ul>  
             </nav>
           </header>
