@@ -7,6 +7,7 @@ import {
 } from '../../redux/productSlice';
 import './ShoppingCartB.css';
 import { Link } from 'react-router-dom';
+//import ShoppingCartIcon from '../components/ShoppingCartIcon';
 
 function ShoppingCart() {
   const cartItems = useSelector((state) => state.cart);
@@ -24,6 +25,12 @@ function ShoppingCart() {
     dispatch(decrementQuantity(productId));
   };
 
+  // Calculate total amount
+  const totalAmount = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className="shopping-cart-container">
       <h2 className="shopping-cart-title">Shopping Cart</h2>
@@ -35,7 +42,7 @@ function ShoppingCart() {
             <div key={item.id} className="cart-item">
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div className="cart-item-details">
-              <Link to={`/product/${item.id}`} className="cart-item-name">
+                <Link to={`/product/${item.id}`} className="cart-item-name">
                   {item.name}
                 </Link>
                 <p className="cart-item-price">${item.price.toFixed(2)}</p>
@@ -63,12 +70,13 @@ function ShoppingCart() {
               </div>
             </div>
           ))}
+          <p className="total-amount">Total: ${totalAmount.toFixed(2)}</p>
+          <p className="total-items">Total Items: {cartItems.length}</p>
           <Link to="/shop" className="keep-shopping-link">
             Keep Shopping
           </Link>
         </div>
       )}
-
     </div>
   );
 }

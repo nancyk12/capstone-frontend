@@ -1,11 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
-//components
-//import Header from "../components/Header"
+import { useSelector } from "react-redux";
+import CustomShoppingCartIcon from "../components/CustomShoppingCartIcon";
 import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from "../components/Footer"
 
 
 export default function Layout() {
+  const cartItems = useSelector((state) => state.cart);
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+
     return (
       <> 
         <div className="site-wrapper">
@@ -21,8 +24,13 @@ export default function Layout() {
                  <li><NavLink to="/courses">Classes</NavLink></li>
                  <li><NavLink to="/blogs">Blogs</NavLink></li>
                  <li><NavLink to="/pets">Pets to Adopt</NavLink></li>
-                 <li><NavLink to="/shop-b">Shop B</NavLink></li>
-                 <li><NavLink to="/shop">Store</NavLink></li>
+                 <li><NavLink to="/shop" className='nav-cart-icon-container'>
+                  Store
+                  <CustomShoppingCartIcon className='nav-cart-icon'/>
+                  {totalItems > 0 && (
+                    <span className="nav-cart-item-count">{totalItems}</span>
+                  )}
+                  </NavLink></li>
                  <li><NavLink to="/contact">Contact</NavLink></li>
                  <li><NavLink to="/login-home">Login</NavLink></li>
               </ul>  

@@ -103,6 +103,36 @@ nav ul li:last-child a:hover {
   background-color: #685454; /*Updated background color on hover*/
   border: 1px solid #F5E4C3; /* Added border color on hover*/
 } 
+/*Navbar Shopping Cart Icon*/
+.nav-cart-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-cart-icon {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+}
+
+.nav-cart-item-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  background-color: #EA8A8A;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
 
 .content-container {
   min-height: calc(100vh - 34px);

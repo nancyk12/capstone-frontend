@@ -62,6 +62,7 @@ function Shop() {
             </li>
           ))}
         </ul>
+        <p className="total-items">Total Items: {cartItems.length}</p>
         <Link to="/cart" className="cart-link">Go to Cart</Link>
       </div>
     </div>
