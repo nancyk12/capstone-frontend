@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../redux/authSlice";
+import { logout, authCheck } from "../redux/authSlice";
 import CustomShoppingCartIcon from "../components/CustomShoppingCartIcon";
 import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from "../components/Footer"
@@ -14,6 +15,9 @@ export default function Layout() {
   const user = useSelector((state) => state.users);
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(authCheck())
+  }, [isAuth]) 
 
   const handleLogout = () => {
     dispatch(logout());

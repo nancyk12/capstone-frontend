@@ -26,28 +26,21 @@ import Courses, { coursesLoader } from "./pages/courses/Courses";
 import CourseDetails, { courseDetailsLoader } from "./pages/courses/CourseDetails";
 import CourseError from "./pages/courses/CourseError";
 
-//store
-// import Shop from './pages/shop/Shop';
-// import ProductInfo from './pages/shop/ProductInfo';
-// import ShoppingCart from './pages/shop/ShoppingCart';
-
-
-// //ShopB 
+//Shop
 import Shop from './pages/shop/Shop';
 import ProductInfo from './pages/shop/ProductInfo';
 import ShoppingCart from './pages/shop/ShoppingCart';
 
-
 //blogs
-import Blogs from "./pages/blogs/Blogs";
-import BlogForm from "./pages/blogs/BlogForm";
+// import Blogs from "./pages/blogs/Blogs";
+// import BlogForm from "./pages/blogs/BlogForm";
 //import EditBlog from "./pages/blogs/EditBlog";
 
 //pets
 import Pets from "./pages/pets/Pets";
 import PetDetail from "./pages/pets/PetDetail";
-import AddToFavoritesButton from "./pages/pets/AddToFavoritesButton";
-import Favorites from "./pages/pets/Favorites";
+//import AddToFavoritesButton from "./pages/pets/AddToFavoritesButton";
+import PetFavorites from "./pages/pets/PetFavorites";
 
 //contact
 import Contact from "./pages/Contact";
@@ -65,28 +58,23 @@ import CourseLayout from "./layouts/CourseLayout";
 
 
 function App() {
-  const [blogs, setBlogs] = useState([]);
-	const [shouldRefresh, setShouldRefresh] = useState(false);
+  // const [blogs, setBlogs] = useState([]);
+	// const [shouldRefresh, setShouldRefresh] = useState(false);
 
-	const url = "http://localhost:5005";
-	//useEffect first argument, takes in an anonymous callback function. second argument, dependency array
-	useEffect(() => {
-		const fetchData = async () => {
-			// fetch('url', { method: "POST"})
-			//axios will parse the response from our backend back to us so we don't need response.json()
-			const response = await axios.get(`${url}/blogs/all-blogs`);
-			if (response.data.success) {
-				setBlogs(response.data.blogs);
-			}
-		};
-		fetchData();
-	}, [shouldRefresh]);
+	// const url = "http://localhost:5005";
+	// //useEffect first argument, takes in an anonymous callback function. second argument, dependency array
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		// fetch('url', { method: "POST"})
+	// 		//axios will parse the response from our backend back to us so we don't need response.json()
+	// 		const response = await axios.get(`${url}/blogs/all-blogs`);
+	// 		if (response.data.success) {
+	// 			setBlogs(response.data.blogs);
+	// 		}
+	// 	};
+	// 	fetchData();
+	// }, [shouldRefresh]);
 
-  // const [cart, setCart] = useState([]);
-  // // Function to add the product to the cart
-  // const addToCart = (product) => {
-  //   setCart([...cart, product]);
-  // };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -94,17 +82,17 @@ function App() {
         <Route index element={<Home />}/>
         <Route path="payment" element={<Payment />}/>
 
-        <Route 
+        {/* <Route 
               path="blog" 
               element={<Blogs
               blogsProps={blogs}
 							setShouldRefreshProps={setShouldRefresh}
 						/>
 					}
-				  />
+				  /> */}
 
           {/* <Route path="/home" element={<PrivatePage />}>*/}
-            <Route
+            {/* <Route
               path="blog-form"
               element={
                 <BlogForm
@@ -112,7 +100,7 @@ function App() {
                   setShouldRefreshProps={setShouldRefresh}
                 />
               }
-            />
+            /> */}
             {/* <Route
               path="edit-blog/:id"
               element={
@@ -126,12 +114,7 @@ function App() {
         {/*</Route>   */}
         <Route path="/pets" element={<Pets />}/>
         <Route path="/pets/:id" element={<PetDetail />}/>
-        <Route path="/favorites" element={<Favorites />}/>
-
-        {/* <Route path="/shop" element={<Shop />}/>
-        <Route path="/product/:id" element={<ProductInfo />}/>
-        {/* <Route path="/cart" element={<ShoppingCart cartItems={cart}  />}/> */}
-        {/*<Route path="/cart" element={<ShoppingCart  />}/> */}
+        <Route path="/favorites" element={<PetFavorites />}/>
 
         <Route path="/shop" element={<Shop />}/>
         <Route path="/product/:id" element={<ProductInfo />}/>

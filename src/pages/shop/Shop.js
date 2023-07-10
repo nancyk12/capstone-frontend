@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/productSlice';
-import products from './products.json';
+import Axios from '../../lib/Axios';
+// import products from './products.json';
 import './ShopB.css';
 
 function Shop() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
   const [searchQuery, setSearchQuery] = useState('');
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await Axios.get('/products/all-products');
+        setProducts(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -40,11 +55,11 @@ function Shop() {
       </div>
       <div className="products-container">
         {filteredProducts.map((product) => (
-          <div className="product-card" key={product.id}>
+          <div className="product-card" key={product._id}>
             <img src={product.image} alt={product.name} className="product-image" />
             <h3 className="product-name">{product.name}</h3>
             <p className="product-price">${product.price.toFixed(2)}</p>
-            <Link to={`/product/${product.id}`} className="product-link">
+            <Link to={`/product/${product._id}`} className="product-link">
               View Details
             </Link>
             <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
