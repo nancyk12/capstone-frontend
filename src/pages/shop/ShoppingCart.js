@@ -48,21 +48,8 @@ function ShoppingCart() {
         <p>Your cart is currently empty.</p>
         <div className="start-shpping">
         <Link to="/shop">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                className="bi bi-arrow-left"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                />
-              </svg>
-              <span>Start Shopping</span>
-            </Link>
+          <span>⬅︎ Start Shopping</span>
+        </Link>
         </div>
       </div>
       ) : (
@@ -102,43 +89,27 @@ function ShoppingCart() {
             </div>
           ))}
         <div className="cart-summary"> 
-          <button className="cart-clear-all-button" onClick={handleRemoveAllFromCart}>Clear All</button>
-          <div className="cart-checkout">
-            <div className="total-items">
-              {/* <span>Total Items</span> */}
-              {/* <p>{totalQuantity}</p> */}
+          <div className="total-items">
               <span className="total-items">Total Items: {totalQuantity}</span>
-            </div>
+              <button className="cart-clear-all-button" onClick={handleRemoveAllFromCart}>Clear All</button>
+          </div>
+          <div className="cart-checkout">
+            
             <div className="subtotal">
               
-              <br/>
+          
               <span>Subtotal</span>
               <p className="amount"> ${totalAmount.toFixed(2)}</p>
             </div>
             <p>Taxes and shipping calculated at checkout</p>
-            <button>Check out</button>
+            <Link to="/address-form" className="checkout-link">
+               <button >Check out</button>
+            </Link>   
+              <br/>
             <Link to="/shop">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="currentColor"
-                    className="bi bi-arrow-left"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-                    />
-                  </svg>
-                  <span>Continue Shopping</span>
+              <span>⬅︎ Continue Shopping</span>
             </Link>
             <br/>
-            <Link to="/shop" className="keep-shopping-link">
-               Continue Shopping
-            </Link>
-            <br/>
-          <Link to="/address-form" className="checkout-link">Checkout</Link>
         </div>
         </div>
       </div>
