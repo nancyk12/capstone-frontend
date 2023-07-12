@@ -6,7 +6,6 @@ import {
   incrementQuantity,
   decrementQuantity,
 } from '../../redux/productSlice';
-import './ShoppingCartB.css';
 import { Link } from 'react-router-dom';
 //import ShoppingCartIcon from '../components/ShoppingCartIcon';
 
@@ -41,56 +40,57 @@ function ShoppingCart() {
 
 
   return (
-    <div className="shopping-cart-container">
-      <h2 className="shopping-cart-title">Shopping Cart</h2>
+    <div className="cart-container">
+      <h2>Shopping Cart</h2>
       {cartItems.length === 0 ? (
-        <div className="cart-empty">
+      <div className="cart-empty">
         <p>Your cart is currently empty.</p>
         <div className="start-shpping">
-        <Link to="/shop">
-          <span>⬅︎ Start Shopping</span>
-        </Link>
+          <Link to="/shop">
+            <span>⬅︎ Start Shopping</span>
+          </Link>
         </div>
       </div>
       ) : (
-      
-
-        <div className="cart-items-container">
-          {cartItems.map((item) => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image} alt={item.name} className="cart-item-image" />
-              <div className="cart-item-details">
-                <Link to={`/product/${item._id}`} className="cart-item-name">
-                  {item.name}
-                </Link>
-                <p className="cart-item-price">${item.price.toFixed(2)}</p>
-                <div className="cart-item-quantity">
-                  <button
-                    className="quantity-button"
-                    onClick={() => handleDecrementQuantity(item._id)}
-                  >
-                    -
-                  </button>
-                  <span className="quantity">{item.quantity}</span>
-                  <button
-                    className="quantity-button"
-                    onClick={() => handleIncrementQuantity(item._id)}
-                  >
-                    +
-                  </button>
-                </div>
-                <button
-                  className="remove-from-cart-button"
-                  onClick={() => handleRemoveFromCart(item._id)}
-                >
+      <div>  
+        <div className="titles">
+            <h3 className="product-title">Product</h3>
+            <h3 className="price">Price</h3>
+            <h3 className="quantity">Quantity</h3>
+            <h3 className="total">Total</h3>
+          </div>
+        <div className="cart-items">
+          {cartItems &&
+           cartItems.map((item) => (
+            <div className="cart-item" key={item.id}>
+             <div className="cart-product">
+             <img src={item.image} alt={item.name}/>
+              <div>
+              <Link to={`/product/${item._id}`}><h3>{item.name}</h3></Link>
+                <p>{item.description}</p>
+                <button onClick={() => handleRemoveFromCart(item._id)}>
                   Remove from Cart
                 </button>
               </div>
             </div>
+            <div className="cart-product-price">${item.price.toFixed(2)}</div>
+             <div className="cart-product-quantity">
+                <button onClick={() => handleDecrementQuantity(item._id)}>
+                  -
+                </button>
+                <div className="count">{item.quantity}</div>
+                    <button onClick={() => handleIncrementQuantity(item._id)}>+</button>
+            </div>
+            <div className="cart-product-total-price">
+                    ${item.price * item.quantity}
+                  </div>
+            </div>
           ))}
+        </div>  
+
         <div className="cart-summary"> 
           <div className="total-items">
-              <span className="total-items">Total Items: {totalQuantity}</span>
+              <span className="total-items">Total Items: {totalQuantity} </span>
               <button className="cart-clear-all-button" onClick={handleRemoveAllFromCart}>Clear All</button>
           </div>
           <div className="cart-checkout">
