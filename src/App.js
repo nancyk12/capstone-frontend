@@ -20,6 +20,14 @@ import Error from "./components/Error";
 //pages
 import Home from "./pages/Home";
 import Payment from "./pages/Payment";
+import Page from "./pages/Page";
+
+//checkout
+import AddressForm from './pages/checkout/AddressForm';
+import Checkout from "./pages/checkout/Checkout";
+import Review from "./pages/checkout/Review";
+import PaymentForm from "./pages/checkout/PaymentForm";
+
 
 //courses
 import Courses, { coursesLoader } from "./pages/courses/Courses";
@@ -131,6 +139,23 @@ function App() {
             element={<CourseDetails />}
             loader={courseDetailsLoader}
           />
+          <Route
+            path="address-form"
+            element={<AddressForm />}
+          />
+          <Route
+            path="checkout"
+            element={<Checkout />}
+          />
+          <Route
+            path="review"
+            element={<Review />}
+          />
+          <Route
+            path="payment"
+            element={<PaymentForm />}
+          />
+
         </Route>
         <Route 
           path="login-home" 

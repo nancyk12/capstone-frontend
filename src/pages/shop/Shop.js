@@ -28,7 +28,7 @@ function Shop() {
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
   };
-
+  
   const handleSearch = () => {
     // Perform search based on searchQuery
     // You can customize this logic to suit your needs
@@ -39,6 +39,10 @@ function Shop() {
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  
+  
   return (
     <div className="shop-container">
       <h1 className="shop-title">Shop</h1>
@@ -72,12 +76,13 @@ function Shop() {
         <h2 className="cart-title">Cart</h2>
         <ul className="cart-items">
           {cartItems.map((item) => (
-            <li key={item.id} className="cart-item">
+            <li key={item._id} className="cart-item">
               {item.name} - Quantity: {item.quantity}
             </li>
           ))}
         </ul>
-        <p className="total-items">Total Items: {cartItems.length}</p>
+        <p className="total-items">Total Items: {totalQuantity}</p>
+        <p className="total-amount">Total: ${totalAmount.toFixed(2)}</p>
         <Link to="/cart" className="cart-link">Go to Cart</Link>
       </div>
     </div>

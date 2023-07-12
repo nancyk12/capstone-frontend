@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/productSlice';
-import products from './products.json';
+//import products from './products.json';
+import Axios from '../../lib/Axios';
 import { Link } from 'react-router-dom';
 import './ProductInfoB.css';
 
@@ -11,7 +12,21 @@ function ProductInfo() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
-  const product = products.find((product) => product.id === parseInt(id));
+  //const product = products.find((product) => product.id === parseInt(id));
+  const[product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await Axios.get(`/products/${id}`);
+        setProduct(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
@@ -20,6 +35,10 @@ function ProductInfo() {
   if (!product) {
     return <div>Product not found</div>;
   }
+
+  const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  
 
   return (
     <div className="product-info-container">
@@ -36,13 +55,14 @@ function ProductInfo() {
         <h2 className="cart-title">Cart</h2>
         <ul className="cart-items">
           {cartItems.map((item) => (
-            <li key={item.id} className="cart-item">
+            <li key={item._id} className="cart-item">
               {item.name} - Quantity: {item.quantity}
             </li>
           ))}
         </ul>
       </div>
-      <p className="total-items">Total Items: {cartItems.length}</p>
+       <p className="total-items">Total Items: {totalQuantity}</p>
+        <p className="total-amount">Total: ${totalAmount.toFixed(2)}</p>
       <Link to="/cart" className="cart-link">Go to Cart</Link>
     </div>
   );
