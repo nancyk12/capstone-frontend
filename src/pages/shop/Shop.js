@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/productSlice';
 import Axios from '../../lib/Axios';
 // import products from './products.json';
-import './ShopB.css';
+//import './ShopB.css';
 
 function Shop() {
   const dispatch = useDispatch();
@@ -45,8 +45,27 @@ function Shop() {
   
   return (
     <div className="shop-container">
-      <h1 className="shop-title">Shop</h1>
-      <div className="search-bar">
+    <h1 className=".shop-container h1">The Pet Supply Store</h1>
+    <div className="shop-search-bar" >
+      <input 
+        type="text" 
+        placeholder="Search products"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
+       <button className="search-button" onClick={handleSearch}>
+         Search
+       </button>
+       {/* <button 
+         className="search-button" 
+         onClick={handleResetClick}
+       > 
+                Reset
+       </button> */}
+     </div>
+
+      
+      {/* <div className="search-bar">
         <input
           type="text"
           placeholder="Search products"
@@ -55,8 +74,8 @@ function Shop() {
         />
         <button className="search-button" onClick={handleSearch}>
           Search
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
       <div className="products-container">
         {filteredProducts.map((product) => (
           <div className="product-card" key={product._id}>

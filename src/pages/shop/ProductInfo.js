@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/productSlice';
 //import products from './products.json';
 import Axios from '../../lib/Axios';
-import { Link } from 'react-router-dom';
-import './ProductInfoB.css';
+
+//import './ProductInfoB.css';
 
 
 function ProductInfo() {
@@ -39,22 +39,20 @@ function ProductInfo() {
   const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
   const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   
-
-  return (
-    <div className="product-info-container">
-      <h1 className="product-info-title">Product Info</h1>
-      <div className="product-details">
-        <img src={product.image} alt={product.name} className="product-image" />
-        <h3 className="product-name">{product.name}</h3>
-        <p className="product-price">${product.price.toFixed(2)}</p>
-        <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
-          Add to Cart
-        </button>
-      </div>
-      <div className="cart-container">
-        <h2 className="cart-title">Cart</h2>
-        <ul className="cart-items">
-          {cartItems.map((item) => (
+  return(
+    <div className="product-info">
+         <h1>{product.name}</h1>         
+         <img src={product.image} alt={product.name} />
+         <p>{product.brand}</p>
+         <p>{product.description}</p>
+         <p>Price: ${product.price.toFixed(2)}</p>
+         <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
+           Add to Cart
+         </button>
+        <div className="cart-container">
+         <h2 className="cart-title">Cart</h2>
+         <ul className="cart-items">
+           {cartItems.map((item) => (
             <li key={item._id} className="cart-item">
               {item.name} - Quantity: {item.quantity}
             </li>
@@ -64,8 +62,39 @@ function ProductInfo() {
        <p className="total-items">Total Items: {totalQuantity}</p>
         <p className="total-amount">Total: ${totalAmount.toFixed(2)}</p>
       <Link to="/cart" className="cart-link">Go to Cart</Link>
+      <Link to="/shop">
+              <span>⬅︎ Continue Shopping</span>
+            </Link>     
     </div>
-  );
+       
+  )
+
+  // return (
+  //   <div className="product-info-container">
+  //     <h1 className="product-info-title">Product Info</h1>
+  //     <div className="product-details">
+  //       <img src={product.image} alt={product.name} className="product-image" />
+  //       <h3 className="product-name">{product.name}</h3>
+  //       <p className="product-price">${product.price.toFixed(2)}</p>
+  //       <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
+  //         Add to Cart
+  //       </button>
+  //     </div>
+  //     <div className="cart-container">
+  //       <h2 className="cart-title">Cart</h2>
+  //       <ul className="cart-items">
+  //         {cartItems.map((item) => (
+  //           <li key={item._id} className="cart-item">
+  //             {item.name} - Quantity: {item.quantity}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </div>
+  //      <p className="total-items">Total Items: {totalQuantity}</p>
+  //       <p className="total-amount">Total: ${totalAmount.toFixed(2)}</p>
+  //     <Link to="/cart" className="cart-link">Go to Cart</Link>
+  //   </div>
+  // );
 }
 
 export default ProductInfo;
