@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Client } from '@petfinder/petfinder-js';
-import axios from 'axios';
+import Axios from '../../lib/Axios';
 import { useDispatch } from 'react-redux';
 import { addToFavorites } from '../../redux/favoritesSlice';
 
@@ -156,7 +156,7 @@ export default PetDetail;
 // import {useEffect} from "react";
 // import { Client } from "@petfinder/petfinder-js";
 // //import Favorites from "./Favorites"; // Import the Favorites component
-// import axios from "axios";
+//import Axios from '../../lib/Axios';
 // import AddToFavoritesButton from "./AddToFavoritesButton";
 
 // function PetDetail({ pet }) {
