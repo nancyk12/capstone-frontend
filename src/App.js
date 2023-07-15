@@ -8,7 +8,7 @@ import {
 import "./App.css";
 import React from 'react';
 import ReactDom from "react-dom/client";
-import axios from "axios";
+import Axios from './lib/Axios';
 
 import { useEffect, useState } from "react";
 import { Client } from "@petfinder/petfinder-js";
@@ -48,7 +48,7 @@ import ShoppingCart from './pages/shop/ShoppingCart';
 import Pets from "./pages/pets/Pets";
 import PetDetail from "./pages/pets/PetDetail";
 //import AddToFavoritesButton from "./pages/pets/AddToFavoritesButton";
-import PetFavorites from "./pages/pets/PetFavorites";
+import Favorites from "./pages/pets/Favorites";
 
 //contact
 import Contact from "./pages/Contact";
@@ -122,7 +122,7 @@ function App() {
         {/*</Route>   */}
         <Route path="/pets" element={<Pets />}/>
         <Route path="/pets/:id" element={<PetDetail />}/>
-        <Route path="/favorites" element={<PetFavorites />}/>
+        <Route path="/favorites" element={<Favorites />}/>
 
         <Route path="/shop" element={<Shop />}/>
         <Route path="/product/:id" element={<ProductInfo />}/>

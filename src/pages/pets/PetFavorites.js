@@ -1,6 +1,6 @@
 // PetFavorites.js
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Axios from '../../lib/Axios';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ function PetFavorites() {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await axios.get("http://localhost:5005/favorites");
+        const response = await Axios.get("http://localhost:5005/favorites");
         setFavorites(response.data.favorites);
       } catch (error) {
         console.error("Error fetching favorites:", error);
@@ -22,7 +22,7 @@ function PetFavorites() {
 
   const removeFromFavorites = async (animalId) => {
     try {
-      await axios.delete(`http://localhost:5005/favorites/${animalId}`);
+      await Axios.delete(`http://localhost:5005/favorites/${animalId}`);
       setFavorites((prevFavorites) =>
         prevFavorites.filter((favorite) => favorite.id !== animalId)
       );

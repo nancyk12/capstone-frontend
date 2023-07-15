@@ -1,22 +1,17 @@
 // Pets.js
-// import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { Client } from '@petfinder/petfinder-js';
-//import { useNavigate } from 'react-router-dom';
-//import { useDispatch } from 'react-redux';
-//import { addToFavorites } from '../../redux/favoritesSlice';
-//import HeartIconClick from '../../components/HeartIconClick';
-//import Axios from '../../lib/Axios';
-
-import React from "react";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
-import { Client } from "@petfinder/petfinder-js";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Client } from '@petfinder/petfinder-js';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToFavorites } from '../../redux/favoritesSlice';
+import Axios from '../../lib/Axios';
 import HeartIconClick from '../../components/HeartIconClick';
-import { Badge } from "react-bootstrap";
+
 
 
 function Pets() {
+  const dispatch = useDispatch();
+  const favoritesItems = useSelector((state) => state.favorites);
   const [animals, setAnimals] = useState([]);
 	const [selected, setSelected] = useState("");
 	const [zipcode, setZipcode] = useState();
@@ -50,6 +45,24 @@ function Pets() {
 		setZipcode(inputField);
 	};
 
+  //Add to Favorites
+  const handleSaveToFavorites = (animal) => {
+    dispatch(addToFavorites(animal));
+  
+  // const handleAddToFavorites = (animal) => {
+  //   dispatch(addToFavorites(animal));
+
+    Axios.post('/favorites/add-to-favorites', { animal })
+    .then((response) => {
+      console.log('Animal added to favorites:', response.data);
+    })
+    .catch((error) => {
+      console.error('Error adding animal to favorites:', error);
+    });
+  };
+
+  // const totalQuantity = favoritesItems.reduce((total, item) => total + item.quantity, 0);
+  
 
 	return (
 		<div className="pets-page-container">
@@ -92,44 +105,47 @@ function Pets() {
 				{animals.length > 0 &&
 				animals.map((animal) => {
 					return (
-                     <div className="pet-tile">  
-					  <div key={animal.id} className="pet-tile">	
+           <div className="pet-tile">  
+					  <div className="pet-tile" key={animal.id} >	
 
-                       <Link to={`/pets/${animal.id}`}>
-                         <div className="pet-tile-img">
-                         {animal.primary_photo_cropped !== null ?
-                         <img
-                        style={{ width: "300px", height: "300px" }}
-                        src={animal.primary_photo_cropped.full} alt="pet"/> 
-                        : 
-                        <img style={{ width: "300px", height: "300px" }} src="images/pet-photo-shoot.jpeg" alt="pet"/>}
-                      </div> 
+             <Link to={`/pets/${animal.id}`}>
+               <div className="pet-tile-img">
+                {animal.primary_photo_cropped !== null ?
+                <img
+                  style={{ width: "300px", height: "300px" }}
+                  src={animal.primary_photo_cropped.full} alt="pet"/> 
+                  : 
+                  <img style={{ width: "300px", height: "300px" }} src="images/pet-photo-shoot.jpeg" alt="pet"/>}
+               </div> 
 
-                      <div className="pet-info">
+               <div className="pet-info">
 
-                        {/* <h2>{animal.name.substring(0, 25)}</h2>  */}
-                        <h3>
-                         {animal.name.substring(0, 20)} 
-                         <span className={`pet-type ${ animal.type} selected`}>{animal.type}</span>
-                        </h3>
-
-
-                        <span>{animal.age}  •  {animal.gender}  •  {animal.breeds.primary.substring(0, 25)}</span>
-                       <br/>
-                        <span>{animal.contact.address.city}, {animal.contact.address.state}</span>
-                        <br/>
-                        {/* <i className={`pet-type ${animal.type} selected`}>{animal.type}</i> */}
-                      </div>
-                      </Link>
-                      <HeartIconClick/>
-                       </div> 
-                     
-                      </div>
-					  
-						);
-					})	}
+                {/* <h2>{animal.name.substring(0, 25)}</h2>  */}
+                <h3>
+                  {animal.name.substring(0, 20)} 
+                  <span className={`pet-type ${ animal.type} selected`}>{animal.type}</span>
+                </h3>
+                <span>{animal.age}  •  {animal.gender}  •  {animal.breeds.primary.substring(0, 25)}</span>
+                <br/>
+                <span>{animal.contact.address.city}, {animal.contact.address.state}</span>
+                {/* <br/> */}
+                {/* <i className={`pet-type ${animal.type} selected`}>{animal.type}</i> */}
+               </div>
+               <div>
+              <button onClick={handleSaveToFavorites}>
+                Add {animal.name} to favorites
+              </button>
+            </div>
+             </Link>
+              {/* <HeartIconClick
+                onClick={() => handleAddToFavorites(animal)}
+              /> */}
+            </div> 
+          </div>
+				);
+			 })	}
 			</div>
-			</div>
+		</div>
       <br/>
       <Link to="/favorites">Go to Favorites</Link>
 	</div>

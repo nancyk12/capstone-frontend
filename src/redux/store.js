@@ -4,8 +4,8 @@ import {configureStore} from '@reduxjs/toolkit'
 import usersReducer from './usersSlice'
 import authReducer from './authSlice'
 import productReducer from './productSlice';
-import petsSlice from './petsSlice';
-import favoritesSlice from './favoritesSlice';
+import petsReducer from './petsSlice';
+import favoritesReducer from './favoritesSlice';
 
 
 
@@ -14,8 +14,8 @@ export default configureStore({
         users: usersReducer,
         auth: authReducer,
         cart: productReducer, 
-        pets: petsSlice,
-        favorites: favoritesSlice
+        pets: petsReducer,
+        favorites: favoritesReducer
     }
 })
 

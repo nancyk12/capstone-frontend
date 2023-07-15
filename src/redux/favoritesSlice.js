@@ -4,18 +4,28 @@ const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: [],
   reducers: {
-    addToFavorites: (state, action) => {
-      state.push(action.payload);
+    setFavorites(state, action) {
+      return action.payload;
     },
-    removeFromFavorites: (state, action) => {
-      const index = state.findIndex((item) => item.id === action.payload);
-      if (index !== -1) {
-        state.splice(index, 1);
-      }
+    addToFavorites(state, action) {
+      const animal = action.payload;
+      state.push(animal);
+    },
+    removeFromFavorites(state, action) {
+      const animalId = action.payload;
+      return state.filter((animal) => animal.id !== animalId);
+    },
+    removeAllFromFavorites() {
+      return [];
     },
   },
 });
 
-export const { addToFavorites, removeFromFavorites } = favoritesSlice.actions;
+export const {
+  setFavorites,
+  addToFavorites,
+  removeFromFavorites,
+  removeAllFromFavorites,
+} = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;
