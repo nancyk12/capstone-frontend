@@ -102,7 +102,7 @@ function ShoppingCart() {
               <p className="amount"> ${totalAmount.toFixed(2)}</p>
             </div>
             <p>Taxes and shipping calculated at checkout</p>
-            <Link to="/address-form" className="checkout-link">
+            <Link to="/checkout" className="checkout-link">
                <button >Check out</button>
             </Link>   
               <br/>

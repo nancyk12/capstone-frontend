@@ -1,54 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setFavorites, removeFromFavorites, removeAllFromFavorites } from '../../redux/favoritesSlice';
+import { removeFromFavorites, removeAllFromFavorites } from '../../redux/favoritesSlice';
 import { Link } from 'react-router-dom';
-import Axios from '../../lib/Axios';
-  
-
 
 function Favorites() {
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // Fetch favorites from the backend when the component mounts
-    Axios.get('/favorites/all-favorites')
-      .then((response) => {
-        const favoritesData = response.data;
-        // Update favorites state in the Redux store
-        dispatch(setFavorites(favoritesData));
-      })
-      .catch((error) => {
-        console.error('Error fetching favorites:', error);
-      });
-  }, []);
-
   const handleDelete = (animalId) => {
     dispatch(removeFromFavorites(animalId));    
-  
+  };
 
-  Axios.delete(`/favorites/${animalId}`)
-  .then((response) => {
-    console.log('Animal removed from favorites:', response.data);
-  })
-  .catch((error) => {
-    console.error('Error removing animal from favorites:', error);
-  });
-};
+  
 
   const handleRemoveAll = () => {
     dispatch(removeAllFromFavorites());
-  
-
-  Axios.delete('/favorites/delete-all')
-  .then((response) => {
-    console.log('All favorites removed:', response.data);
-  })
-  .catch((error) => {
-    console.error('Error removing all favorites:', error);
-  });
   };
-
 
   return (
     <div>
@@ -85,15 +52,13 @@ function Favorites() {
 		  </div>		
 		</div>
 	  </section>
-
+              
             </div>
           ))}
-          <Link to="/pets">Back to Filtered Pets</Link>
         </div>
       ) : (
         <p>No favorites selected.</p>
       )}
-      <Link to="/pets">Back to Filtered Pets</Link>
     </div>
   );
 }

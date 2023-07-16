@@ -23,10 +23,10 @@ import Payment from "./pages/Payment";
 import Page from "./pages/Page";
 
 //checkout
-import AddressForm from './pages/checkout/AddressForm';
-import Checkout from "./pages/checkout/Checkout";
-import Review from "./pages/checkout/Review";
-import PaymentForm from "./pages/checkout/PaymentForm";
+import Checkout from "./pages/shop/checkout/Checkout";
+import AddressForm from './pages/shop/checkout/AddressForm';
+import Review from "./pages/shop/checkout/Review";
+import PaymentForm from "./pages/shop/checkout/PaymentForm";
 
 
 //courses
@@ -169,6 +169,7 @@ function App() {
           path="/register" 
           element={<Register />}
         />
+        <Route path="checkout" element={<Checkout />}></Route>
 
 
         <Route path="*" element={<NotFound />}/>

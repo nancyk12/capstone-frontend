@@ -6,12 +6,29 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
 
+
 export default function AddressForm() {
+  const [firstName, setFirstName] = React.useState('');
+  const [lastName, setLastName] = React.useState('');
+  const [address1, setAddress1] = React.useState('');
+  const [address2, setAddress2] = React.useState('');
+  const [city, setCity] = React.useState('');
+  const [state, setState] = React.useState('');
+  const [zip, setZip] = React.useState('');
+  const [country, setCountry] = React.useState('');
+  const submitHandler = (event) => {
+    event.preventDefault();
+  }
+
+
   return (
-    <React.Fragment>
+ 
+   <React.Fragment>
+    
       <Typography variant="h6" gutterBottom>
         Shipping address
       </Typography>
+
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -107,5 +124,6 @@ export default function AddressForm() {
       </Grid>
       <Link></Link>
     </React.Fragment>
+
   );
 }
