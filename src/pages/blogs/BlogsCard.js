@@ -1,16 +1,16 @@
 import React from "react";
-import axios from "axios";
+import Axios from '../../lib/Axios';
 import { useNavigate } from "react-router-dom";
 
 
 function BlogsCard(props) {
 	const navigate = useNavigate();
 
-	const url = "http://localhost:5005";
+	// const url = "http://localhost:5005";
 
 	const handleDelete = async(id) => {
 		props.setShouldRefresh(true);
-		const response = await axios.delete(`${url}/blogs/delete-by-id/${id}`);
+		const response = await Axios.delete(`$/blogs/delete-by-id/${id}`);
 		props.setShouldRefresh(false);
 	}
 

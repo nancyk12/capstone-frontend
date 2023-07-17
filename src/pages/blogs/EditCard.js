@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import Axios from '../../lib/Axios';
 // import PhotoUpload from "./PhotoUpload";
 import { Link } from "react-router-dom"
 
@@ -12,7 +12,7 @@ export default function EditBlog(props) {
 	const [categoriesInput, setCategoriesInput] = useState("");
 	const { id } = useParams();
 	const navigate = useNavigate();
-	const url = "http://localhost:5005";
+	// const url = "http://localhost:5005";
 
 	useEffect(() => {
 		const foundBlog = props.blogsProps.find((blog) => {
@@ -34,8 +34,8 @@ export default function EditBlog(props) {
 			author: authorInput,
 			category: categoriesInput,
 		};
-		const response = await axios.put(
-			`${url}/blogs/update-by-id/${id}`,
+		const response = await Axios.put(
+			`/blogs/update-by-id/${id}`,
 			updatedData
 		);
 		props.setShouldRefreshProps(false);

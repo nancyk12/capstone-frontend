@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import Axios from '../../lib/Axios';
 import PhotoUpload from "./PhotoUpload";
 
 
@@ -10,7 +10,7 @@ function BlogForm(props) {
 	const [textInput, setTextInput] = useState("");
 	const [authorInput, setAuthorInput] = useState("");
 	const [categoriesInput, setCategoriesInput] = useState("");
-	const url = "http://localhost:5005";
+	// const url = "http://localhost:5005";
 
 	const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ function BlogForm(props) {
 		// 	...prevState,
 		// 	{ ...newBlog, id: prevState.length + 1 },
 		// ]);
-		const response = await axios.post(`${url}/blogs/create-blog`, newBlog);
+		const response = await Axios.post('/blogs/create-blog', newBlog);
 		props.setShouldRefreshProps(false);
 
 		setImageInput("");

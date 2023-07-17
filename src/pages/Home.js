@@ -1,5 +1,6 @@
 import React from 'react';
 import AboutUsDiv from '../components/AboutUsDiv';
+import { Link } from 'react-router-dom';
 //import { Carousel } from 'react-responsive-carousel';
 //import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -38,7 +39,7 @@ function Home(){
       <div className="home-card">
         <h3>Available Pet Search</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button>Learn More</button>
+        <Link to="/pets"><button>Learn More</button></Link>
       </div>
       <div className="home-card">
         <h3>Online Pet Care Classes</h3>
@@ -48,7 +49,7 @@ function Home(){
       <div className="home-card">
         <h3>Online Store</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button>Learn More</button>
+        <Link to="/shop"><button>Learn More</button></Link>
       </div>
       <div className="home-card">
         <h3>Blog</h3>

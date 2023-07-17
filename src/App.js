@@ -19,7 +19,6 @@ import Error from "./components/Error";
 
 //pages
 import Home from "./pages/Home";
-import Payment from "./pages/Payment";
 import Page from "./pages/Page";
 
 //checkout
@@ -30,8 +29,9 @@ import PaymentForm from "./pages/shop/checkout/PaymentForm";
 
 
 //courses
-import Courses, { coursesLoader } from "./pages/courses/Courses";
-import CourseDetails, { courseDetailsLoader } from "./pages/courses/CourseDetails";
+//import Courses, {coursesLoader} from "./pages/courses/Courses";
+import Courses from "./pages/courses/Courses";
+import CourseDetails from "./pages/courses/CourseDetails";
 import CourseError from "./pages/courses/CourseError";
 
 //Shop
@@ -40,8 +40,8 @@ import ProductInfo from './pages/shop/ProductInfo';
 import ShoppingCart from './pages/shop/ShoppingCart';
 
 //blogs
-// import Blogs from "./pages/blogs/Blogs";
-// import BlogForm from "./pages/blogs/BlogForm";
+import Blogs from "./pages/blogs/Blogs";
+import BlogForm from "./pages/blogs/BlogForm";
 //import EditBlog from "./pages/blogs/EditBlog";
 
 //pets
@@ -88,38 +88,38 @@ function App() {
     createRoutesFromElements(
       <Route path= "/" element={<RootLayout />}>
         <Route index element={<Home />}/>
-        <Route path="payment" element={<Payment />}/>
+        
 
-        {/* <Route 
+        <Route 
               path="blog" 
               element={<Blogs
-              blogsProps={blogs}
-							setShouldRefreshProps={setShouldRefresh}
+              // blogsProps={blogs}
+							// setShouldRefreshProps={setShouldRefresh}
 						/>
 					}
-				  /> */}
+				  />
 
-          {/* <Route path="/home" element={<PrivatePage />}>*/}
-            {/* <Route
+          {/* <Route path="/home" element={<PrivatePage />}> */}
+            <Route
               path="blog-form"
               element={
                 <BlogForm
-                  setBlogsProps={setBlogs}
-                  setShouldRefreshProps={setShouldRefresh}
+                  // setBlogsProps={setBlogs}
+                  // setShouldRefreshProps={setShouldRefresh}
                 />
               }
-            /> */}
+            />
             {/* <Route
               path="edit-blog/:id"
               element={
                 <EditBlog
-                  blogsProps={blogs}
-                  setShouldRefreshProps={setShouldRefresh}
+                  // blogsProps={blogs}
+                  // setShouldRefreshProps={setShouldRefresh}
                 />
               }
             /> */}
           
-        {/*</Route>   */}
+        {/* </Route>   */}
         <Route path="/pets" element={<Pets />}/>
         <Route path="/pets/:id" element={<PetDetail />}/>
         <Route path="/favorites" element={<Favorites />}/>
@@ -128,35 +128,20 @@ function App() {
         <Route path="/product/:id" element={<ProductInfo />}/>
         <Route path="/cart" element={<ShoppingCart />}/>
 
-        <Route path="courses" element={<CourseLayout />} errorElement={<CourseError />}>
+       <Route path="courses-layout" element={<CourseLayout />} errorElement={<CourseError />}> 
           <Route 
             index 
+            // path="courses"
             element={<Courses />}
-            loader={coursesLoader}
+            // loader={coursesLoader}
           />
           <Route
-            path=":id"
+            path="course/:id"
             element={<CourseDetails />}
-            loader={courseDetailsLoader}
-          />
-          <Route
-            path="address-form"
-            element={<AddressForm />}
-          />
-          <Route
-            path="checkout"
-            element={<Checkout />}
-          />
-          <Route
-            path="review"
-            element={<Review />}
-          />
-          <Route
-            path="payment"
-            element={<PaymentForm />}
+            // loader={courseDetailsLoader}
           />
 
-        </Route>
+       </Route> 
         <Route 
           path="login-home" 
           element={<LoginHome />}

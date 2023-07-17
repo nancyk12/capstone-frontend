@@ -804,13 +804,28 @@ background-color: #beae9d;
   margin-right: 20px;
 }
 
-/* careers list */
-.courses > a {
+/* courses list */
+.courses-layout-container{
+  background-color: white;
+  padding: 24px;
+  margin: 30px 26px;
+  border-radius: 5px;}
+
+.courses {
   display: block;
-  background: rgba(0,0,0,0.2);
+  background: #F5E4C3;
   padding: 20px;
   border-radius: 4px;
   margin: 20px 0;
+  text-decoration: none;
+  }
+
+.courses > a {
+  display: block;
+  background: rgba(0,0,0,0.2);
+  /* padding: 20px; */
+  border-radius: 4px;
+  /* margin: 20px 0; */
   text-decoration: none;
 }
 .courses > a:hover p {
@@ -826,7 +841,7 @@ background-color: #beae9d;
 
 /* course details */
 .course-details {
-  background: rgba(0,0,0,0.2);
+  background:#F5E4C3;
   padding: 20px;
   border-radius: 4px;
   margin: 20px 0;

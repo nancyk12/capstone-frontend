@@ -4,43 +4,59 @@
             "id": 1,
             "title": "Potty training your cat",
             "instructor": "Dr. Michael Smith, Vetrinarian",
-            "location": "Online, Mondays, 7:30 pm EST"
+            "location": "Online",
+            "time": "Mondays, 7:30 pm EST",
+            "description": "Potty training your cat is easy and fun!"
+
           },
           {
             "id": 2,
             "title": "Positive Puppy training",
             "instructor": "Dr. Denise Potter, Animal Behavior Specialist" ,
-            "location": "Online, Tuesdays, 7:30 pm EST"
+            "location": "Online, Tuesdays, 7:30 pm EST",
+            "time": "Tuesdays, 7:30 pm EST",
+            "description": "Positive Puppy training is easy and fun!"
           },
           {
             "id": 3,
             "title": "Your Pet's Nutritional Needs",
             "instructor": "Dr. Nancy Kalliainen, Vetrinary Nutritionist",
-            "location": "Online, Wednesdays, 7:30 pm EST"
+            "location": "Online",
+            "time": "Wednesdays, 7:30 pm EST",
+            "description": "How to meet your pet's nutritional needs!"
           },
           {
             "id": 4,
             "title": "Pet Grooming",
             "instructor": "Ms. Theresa Chappell, Vetrinary Technician",
-            "location": "Online, Thursdays, 7:30 pm EST"
+            "location": "Online",
+            "time": "Thursdays, 7:30 pm EST",
+            "description": "Pet Grooming is easy and fun!"
           },
           {
             "id": 5,
             "title": "Hamster Care",
             "salary": "Dr. Brad Pitt, Vetrinarian",
-            "location": "Online, Fridays, 7:30 pm EST"
+            "location": "Online",
+            "time": "Fridays, 7:30 pm EST",
+            "description": "Hamster Care is easy and fun!"
+
           },
           {
             "id": 6,
             "title": "Dog Training",
             "salary": "Ms. Emily Ellis, Vetrinary Technician",
-            "location": "Online, Satudays, 7:30 pm EST"
+            "location": "Online",
+            "time": "Saturdays, 7:30 pm EST",
+            "description": "Dog Training is easy and fun!"
           },
           {
             "id": 7,
             "title": "Iguana Care",
             "salary": "Mr. Greyson Anderson, Vetrinary Technician",
-            "location": "Online, Sundays, 7:30 pm EST"
+            "location": "Online",
+            "time": "Sundays, 7:30 pm EST",
+            "description": "Iguana Care is easy and fun!"
           }
     ]
  }

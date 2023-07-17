@@ -35,8 +35,7 @@ export default function Layout() {
                    </NavLink></li>
               
                  <li><NavLink to="/">Home</NavLink></li>
-                 <li><NavLink to="/payment">Payment</NavLink></li>
-                 <li><NavLink to="/courses">Classes</NavLink></li>
+                 <li><NavLink to="/courses-layout">Classes</NavLink></li>
                  <li><NavLink to="/blogs">Blogs</NavLink></li>
                  <li><NavLink to="/pets">Pets to Adopt</NavLink></li>
                  <li><NavLink to="/shop" className='nav-cart-icon-container'>

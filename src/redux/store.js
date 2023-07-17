@@ -6,6 +6,7 @@ import authReducer from './authSlice'
 import productReducer from './productSlice';
 import petsReducer from './petsSlice';
 import favoritesReducer from './favoritesSlice';
+import courseReducer from './courseSlice'
 
 
 
@@ -15,7 +16,8 @@ export default configureStore({
         auth: authReducer,
         cart: productReducer, 
         pets: petsReducer,
-        favorites: favoritesReducer
+        favorites: favoritesReducer,
+        enroll: courseReducer
     }
 })
 
