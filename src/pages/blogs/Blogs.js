@@ -1,18 +1,17 @@
 import React from "react";
 import BlogsCard from "./BlogsCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogForm from "./BlogForm";
 import Axios from '../../lib/Axios';
-import { useEffect } from "react";
+
 
 
 function Blogs(props) {
-	console.log(props);
+	//console.log(props);
 
 	  const [blogs, setBlogs] = useState([]);
 	const [shouldRefresh, setShouldRefresh] = useState(false);
 
-	// const url = "http://localhost:5005";
 	//useEffect first argument, takes in an anonymous callback function. second argument, dependency array
 	useEffect(() => {
 		const fetchData = async () => {
@@ -54,7 +53,7 @@ function Blogs(props) {
   );
 }
 
-export default Blogs;
+//export default Blogs;
 
 
 

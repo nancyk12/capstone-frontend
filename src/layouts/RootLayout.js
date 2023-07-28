@@ -36,7 +36,8 @@ export default function Layout() {
               
                  <li><NavLink to="/">Home</NavLink></li>
                  <li><NavLink to="/courses-layout">Classes</NavLink></li>
-                 <li><NavLink to="/blogs">Blogs</NavLink></li>
+                 <li><NavLink to="/posts-excerpt">Posts</NavLink></li>
+                 <li><NavLink to="/blog-list">Blogs</NavLink></li>
                  <li><NavLink to="/pets">Pets to Adopt</NavLink></li>
                  <li><NavLink to="/shop" className='nav-cart-icon-container'>
                   Store

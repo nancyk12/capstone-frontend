@@ -33,4 +33,4 @@ const FileUploader = props => {
     </>
   );
 }
-export default FileUploader;
+//export default FileUploader;

@@ -10,7 +10,7 @@ function BlogsCard(props) {
 
 	const handleDelete = async(id) => {
 		props.setShouldRefresh(true);
-		const response = await Axios.delete(`$/blogs/delete-by-id/${id}`);
+		const response = await Axios.delete(`/blogs/delete-by-id/${id}`);
 		props.setShouldRefresh(false);
 	}
 
@@ -48,5 +48,5 @@ function BlogsCard(props) {
 	);
 }
 
-export default BlogsCard;
+//export default BlogsCard;
 

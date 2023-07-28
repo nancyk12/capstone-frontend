@@ -101,4 +101,4 @@ function BlogForm(props) {
 	);
 }
 
-export default BlogForm;
+//export default BlogForm;
