@@ -19,7 +19,10 @@ const dispatch = useDispatch();
   return (
     <div >
       <h1>Blog Form</h1>
+
+
       <div className="section">
+        {/* Create a button to to the BlogForm for admin use only*/ }
         <BlogForm/>
       </div>
       <h1>Blog List</h1>

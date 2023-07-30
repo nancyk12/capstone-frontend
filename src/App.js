@@ -10,6 +10,7 @@ import React from 'react';
 import ReactDom from "react-dom/client";
 import Axios from './lib/Axios';
 import axios from 'axios';
+import UploadWidget from './components/UploadWidget';
 
 import { useEffect, useState } from "react";
 import { Client } from "@petfinder/petfinder-js";

@@ -1,21 +1,48 @@
 
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addNewBlog } from '../../redux/blogSlice';
+import { useNavigate } from "react-router-dom";
+import UploadWidget from '../../components/UploadWidget';
+import ImageUpload from '../../components/ImageUpload';
+import { Image } from 'cloudinary-react';
 import "./Blogs.css";
+
+
 
 const BlogForm = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [author, setAuthor] = useState('');
+  const [blogImage, setBlogImage] = useState('');
+
+  const handleBlogImageUpload = (e) => {
+    const file = e.target.files[0];
+
+    TransformFileData(file);
+  }
+  
+  const TransformFileData = (file) => {
+    const reader = new FileReader();
+
+    if (file) {
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setBlogImage(reader.result);
+      };
+    } else {
+      setBlogImage("");
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addNewBlog({ title, text, author }));
+    dispatch(addNewBlog({ title, text, author, image: blogImage }));
     setTitle('');
     setText('');
     setAuthor('');
+    setBlogImage('');
   };
 
   return (
@@ -51,7 +78,31 @@ const BlogForm = () => {
             required
           />
         </div>
+        <div>
+          <label htmlFor="image">Image</label>
+          <ImageUpload/>
+          <Image/>
+          <UploadWidget/>
+          <input
+            type="file"
+            id ="image"
+            accept="image/"
+            // value={blogImage}
+            onChange={handleBlogImageUpload}
+            required
+          />
+
+        </div>
         <button type="submit">Submit</button>
+        <div className="image-preview">
+        {blogImage ? (
+          <>
+            <img src={blogImage} alt="error!" />
+          </>
+        ) : (
+          <p>Blog image upload preview will appear here!</p>
+        )}
+        </div>
       </form>
     </div>
   );
