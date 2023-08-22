@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewBlog } from '../../redux/blogSlice';
 import { useNavigate } from "react-router-dom";
+import { CloudinaryContext, Image, Transformation } from 'cloudinary-react';
 import UploadWidget from '../../components/UploadWidget';
 import ImageUpload from '../../components/ImageUpload';
-import { Image } from 'cloudinary-react';
 import "./Blogs.css";
 
 
@@ -80,18 +80,18 @@ const BlogForm = () => {
         </div>
         <div>
           <label htmlFor="image">Image</label>
-          <ImageUpload/>
-          <Image/>
-          <UploadWidget/>
+          {/* <ImageUpload/> */}
+          {/* <Image/>
+          <UploadWidget/> */}
           <input
             type="file"
             id ="image"
             accept="image/"
-            // value={blogImage}
+            value={blogImage}
             onChange={handleBlogImageUpload}
             required
           />
-
+          <ImageUpload onImageUpload={setBlogImage} />
         </div>
         <button type="submit">Submit</button>
         <div className="image-preview">

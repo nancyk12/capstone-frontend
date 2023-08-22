@@ -27,22 +27,35 @@ header {
   width: 100%;
   background-color: #685454;
   color: #fff; 
-  /* padding: 5px;  */
+  padding: 5px; 
   z-index: 100;
 } 
 
 .logo-container {
   color:#F5E4C3;
   font-weight: bold;
-  display: flex;
-  align-items: center;  
+  display: fixed;
+  align-items: center; 
+  justify-content: center;
 }
 
 .logo {
   margin-right: 5px; 
-  width: 30px; 
+  /* width: 30px;  */
   height: 30px;
   margin-left: 10px; 
+}
+
+.logo-container span {
+  color: #F5E4C3;
+  display: center;
+  align-items: center; 
+  /* justify-content: center; */
+  padding-bottom: 5px;
+}
+
+nav {
+  height: 50px;
 }
 
 nav ul {
@@ -116,6 +129,7 @@ nav ul li:last-child a:hover {
 .content-container {
   min-height: calc(100vh - 34px);
 }
+
 footer--pin {
   position: relative;
   left: 0;
@@ -140,12 +154,12 @@ footer {
 /* page content*/
 main {
   width: 100%;
-  margin:40 auto;
+  margin: 40px auto;
   margin-top: 25px;
 }
 
 /* breadcrumbs */
-.breadcrumbs {
+/* .breadcrumbs {
   max-width: 1200px;
   margin: auto;
   
@@ -164,29 +178,46 @@ main {
 }
 .breadcrumbs .crumb a {
   color: #000;
-} 
+}  */
 
 
 /*  HOME PAGE  */
 .home-hero-container {
-  /* margin-top: 60px; */
-  width: 100hv;
+  margin-top: 0px;
+  /* width: 100hv; */
   width: 100%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), url("../public/images/pet-hero.png") no-repeat center center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), url("../public/images/tall-home-hero.png") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  min-height: 350px;
+  min-height: 650px;
   color: white;
-  padding: 45px 23px;
-  text-align: left;
+  /* padding: 0px 23px; */
+  padding: 0px 0px;
+  text-align: flex;
+  /* padding: 45px 23px;
+  text-align: left; */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Space content evenly along vertical axis */
 }
 
+
+
+
 .home-container h1 {
+  top: 5%;
   font-weight: 700;
   font-size: 2.25rem;
   line-height: 42px;
+  margin-top: 10px; /* Add margin to top */
+}
+
+.hero-bottom {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: flex-start; /* Align items to the start */
+  margin-bottom: 20px; /* Add margin to bottom */
 }
 
 .home-container p {
@@ -216,19 +247,35 @@ main {
   color: #685454;
   padding-inline: 32px;
   padding-bottom: 32px;
+  padding-top: 16px;
+  margin-top: 50px;
   margin-inline: 50px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 .about-us h2 {
-  padding-block: 37px;
-  font-size: 24px; /* Adjust the font size as needed */
-  margin-bottom: 10px; /* Adjust the margin as needed */
+  padding-block: 10px;
+  text-align: center;
+  font-size: 28px; /* Adjust the font size as needed */
+  margin-bottom: 5px; /* Adjust the margin as needed */
+
+}
+
+.about-content {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+}
+
+.about-content img {
+  width: 300px;
+  margin-right: 20px; /* Add spacing between image and text */
 }
 
 .about-us p {
   font-size: 16px; /* Adjust the font size as needed */
   line-height: 1.5; /* Adjust the line height as needed */
+  flex: 1; /* Allows the paragraph to take up remaining space */
+  padding-inline: 20px; /* Add spacing between image and paragraph */
 }
 
 .home-h1 {
@@ -697,9 +744,9 @@ i[class*='pet-type-'] {
   background-color: var(--bs-list-group-bg);
   border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
 }
-*, ::after, ::before {
+/* *, ::after, ::before {
   box-sizing: border-box;
-}
+} */
 user agent stylesheet
 li {
   display: list-item;
@@ -1311,16 +1358,237 @@ background-color: #beae9d;
   font-size: 20px;
   margin-block: 0;
 }
+
+
+
 @media (prefers-reduced-motion: no-preference) {
 
 }
-
-
 /* Responsive */
 
-@media (max-width: 665px) {
+/* HEADER */
+@media (min-width: 769px) {
+  .site-wrapper {
+    padding-top: 45px;
+  }
+
+  .mobile-navbar {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+
+  .site-wrapper {
+    padding-top: 45px; /* Add padding for the space taken by the header */
+ }
+
+ .desktop-navbar {
+  display: none;
+}
+
+.mobile-navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem; 
+  background-color: #685454;
+  color: #fff;
+}
+
+/* .logo-container {
+  display: flex;
+  align-items: center;
+} */
+
+.mobile-navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 30px; /* Adjust the logo height as needed */
+  margin-right: 5px;
+}
+
+.burger-nav {
+  display: block;
+  cursor: pointer;  
+  font-size: 34px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.login-section {
+  display: flex;
+  align-items: center;
+  /* margin-left: auto; */
+}
+
+.login-section a {
+  background-color: #EA8A8A;/* Added background color to the Log In button */
+  border-radius: 20px;
+  padding: 10px 15px; 
+  margin-right: 5px;
+  color: #FFFFFF;
+}
+
+.login-section a:hover {
+  background-color: #685454; /*Updated background color on hover*/
+  border: 1px solid #F5E4C3; /* Added border color on hover*/
+} 
+
+  .mobile-nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 45px;
+    /* top: 100%; */
+    right: 0;
+    background-color: #685454;
+    width: 150px;
+    z-index: 99;
+    width: 150px; /* Set the desired width of the dropdown menu */
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%); /* Initially hide the menu off-screen */
+  }
+  .mobile-nav-list.open {
+    display: flex;
+    transform: translateX(0); /* Show the menu by translating it to the visible area */
+  }
+
+  .mobile-nav-list li {
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+
+.mobile-cart-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+}
+
+.mobile-cart-icon {
+  margin-right: 5px;
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+.mobile-cart-item-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  background-color: #EA8A8A;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+
+} 
+
+/* Home */
+
+@media (min-width: 768px) {
+  .home-hero-container {
+    padding: 100px 23px; /* Increase padding for wider screens */
+  }
+
+  .home-container h1 {
+    font-size: 3rem; /* Increase font size for wider screens */
+  }
+
+  .home-container p {
+    font-size: 18px; /* Increase font size for wider screens */
+  }
+}
+
+/* Adjust hero content for tablets and phones */
+@media (max-width: 768px) {
+  .home-hero-container {
+    padding: 50px 23px; /* Adjust padding for smaller screens */
+  }
+
+  .home-container h1 {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+  }
+
+  .home-container p {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+}
+
+.home-container h1 {
+  top: 10%;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 42px;
+}
+
+.home-container p {
+  line-height: 24px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #EA8A8A;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+
+  /* About Us Div */
+
+@media (max-width: 768px) {
+/* AboutUsDiv */
+.about-content {
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.about-content img {
+  width: 100%; /* Make the image take full width */
+  margin-right: 0; /* Remove margin-right for smaller screens */
+  margin-bottom: 20px; /* Add spacing between image and text */
+}
+
+.about-us p {
+  padding-inline: 20px; /* Add spacing between paragraphs and edges */
+}
+}  
+
+
+  
   
   /* Cart */
+  @media (max-width: 768px) {
   .cart-container {
     padding: 2rem;
   }

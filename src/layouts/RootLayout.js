@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, authCheck } from "../redux/authSlice";
 import CustomShoppingCartIcon from "../components/CustomShoppingCartIcon";
-import Breadcrumbs from '../components/Breadcrumbs';
+import MenuIcon from '@mui/icons-material/Menu';
+// import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from "../components/Footer"
 
 
@@ -23,20 +24,31 @@ export default function Layout() {
     dispatch(logout());
   };
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMenuItemClick = () => {
+    setIsMobileMenuOpen(false); // Close the menu when a menu item is clicked
+  };
+
+
 
     return (
       <> 
         <div className="site-wrapper">
           <header>
             <nav>
-              <ul>
+              <ul className="desktop-navbar">
                 <li className="logo-container"><NavLink to="/">
-                   <img src="images/paw-logo-tan.png" alt="Logo" className="logo" />ADOPT-A-PET 
+                   <img src="images/Sublime-Pets.com-sand.png" alt="Logo" className="logo" /><span></span> 
+                   {/* <img src="images/SublimePetsSand.png" alt="Logo" className="logo" />SUBLIME-PETS */}
                    </NavLink></li>
               
                  <li><NavLink to="/">Home</NavLink></li>
                  <li><NavLink to="/courses-layout">Classes</NavLink></li>
-                 <li><NavLink to="/posts-excerpt">Posts</NavLink></li>
                  <li><NavLink to="/blog-list">Blogs</NavLink></li>
                  <li><NavLink to="/pets">Pets to Adopt</NavLink></li>
                  <li><NavLink to="/shop" className='nav-cart-icon-container'>
@@ -59,18 +71,71 @@ export default function Layout() {
           <NavLink to="/login">Login</NavLink>
         )}
       </li>
-              </ul>  
-            </nav>
+    </ul>  
+
+
+    <div className="mobile-navbar">
+            <div className="mobile-navbar-header">
+              <NavLink to="/" className="logo-link">
+                <img src="images/Sublime-Pets.com-sand.png" alt="Logo" className="logo" />
+              </NavLink>
+
+         
+
+            </div>
+            <ul className={`mobile-nav-list ${isMobileMenuOpen ? 'open' : ''}`}>
+              <li onClick={handleMenuItemClick}><NavLink to="/">Home</NavLink></li>
+              <li onClick={handleMenuItemClick}><NavLink to="/courses-layout">Classes</NavLink></li>
+              <li onClick={handleMenuItemClick}><NavLink to="/blog-list">Blogs</NavLink></li>
+              <li onClick={handleMenuItemClick}><NavLink to="/pets">Pets to Adopt</NavLink></li>
+              <li onClick={handleMenuItemClick}><NavLink to="/shop" className='nav-cart-icon-container'>
+                  Store
+                  <CustomShoppingCartIcon className='nav-cart-icon'/>
+                  {totalItems > 0 && (
+                    <span className="nav-cart-item-count">{totalItems}</span>
+                  )}
+                  </NavLink></li>
+              <li onClick={handleMenuItemClick}><NavLink to="/contact">Contact</NavLink></li>
+            </ul>
+            <div className="mobile-cart-container">
+    <NavLink to="/shop" className="mobile-cart-link">
+      <CustomShoppingCartIcon className="mobile-cart-icon" />
+      {totalItems > 0 && (
+        <span className="mobile-cart-item-count">{totalItems}</span>
+      )}
+    </NavLink>
+  </div>
+        
+            <div className="login-section">
+            <MenuIcon className="burger-nav" onClick={handleMobileMenuToggle} />
+            
+              {isAuth ? (
+               <>
+                <span>Hi, {user.firstname} </span>
+                <NavLink to="/" onClick={handleLogout}>
+                  Sign-Out
+                </NavLink>
+               </>
+              ) : (
+              <NavLink to="/login">Login</NavLink>
+               )}
+            </div>
+
+
+    
+  </div>        
+</nav>
+
+
           </header>
-          <br/>
+          {/* <br/>
             <Breadcrumbs/>
-            <br/>
+            <br/> */}
           <div className="content-container">
              <main>
                 <Outlet />
              </main>
           </div>
-          <br/>
           <div className="footer-container">
               <Footer/>
           </div>

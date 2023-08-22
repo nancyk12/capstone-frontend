@@ -42,8 +42,16 @@ const dispatch = useDispatch();
       
       <div className="section">
       {blogs.map((blog) => (
-          <div className="article" key={blog.id}>
+          <div className="article" key={blog.id}>         
             <h2>{blog.title}</h2>
+            <div className="pet-tile-img">
+                {blog.image !== null ?
+                <img
+                  style={{ width: "300px", height: "300px" }}
+                  src={blog.image} alt="blog"/> 
+                  : 
+                  <img style={{ width: "300px", height: "300px" }} src="images/pet-photo-shoot.jpeg" alt="pet"/>}
+               </div> 
             <p className="excerpt">{blog.text.substring(0, 75)}...</p>
             <div className="postCredit">
                 <Link to={`/blogs/get-one-blog/${blog.id}`}>View Post</Link>

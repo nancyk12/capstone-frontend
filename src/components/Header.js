@@ -12,7 +12,7 @@ const Header = () => {
           {/* </div>    */} 
           <ul>
             <li className="logo-container">
-              <img src="images/paw-logo-tan.png" alt="Logo" className="logo" />ADOPT-A-PET 
+              <img src="images/paw-logo-tan.png" alt="Logo" className="logo" />SUBLIME PETS
             </li>
             <li className="selected"><a href="/">Home</a></li> {/* Add the "selected" class */}
             <li><a href="/about">Classes</a></li>
