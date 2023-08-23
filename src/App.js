@@ -19,6 +19,12 @@ import { Client } from "@petfinder/petfinder-js";
 import Error from "./components/Error";
 //import AboutUsDiv from './components/AboutUsDiv';
 
+//admin
+import Dashboard from './components/admin/Dashboard';
+import Products from './components/admin/Products';
+import Summary from './components/admin/Summary';
+import CreateProduct from './components/admin/CreateProduct';
+
 //pages
 import Home from "./pages/Home";
 import Page from "./pages/Page";
@@ -179,6 +185,15 @@ function App() {
         />
         <Route path="checkout" element={<Checkout />}></Route>
 
+        <Route path="contact" element={<Contact />}></Route>
+
+        <Route path="admin" element={<Dashboard/>}>
+          <Route path="products" element={<Products/>}>
+            <Route path="create-product" element={<CreateProduct/>} />
+          </Route>
+          <Route path="summary" element={<Summary/>}/>
+      </Route>
+     
 
         <Route path="*" element={<NotFound />}/>
       </Route>

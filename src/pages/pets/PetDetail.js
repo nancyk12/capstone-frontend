@@ -37,7 +37,7 @@ function PetDetail({ pet }) {
 
   return (
     <>
-      <div>
+      <div className="pet-detail-container">
         {animal ? (
           <div>
             <div>
@@ -114,11 +114,11 @@ function PetDetail({ pet }) {
             </ul>
 
             <div>
-              <button onClick={handleAdopt}>Adopt {animal.name}</button>
+              <button className="cta-button" onClick={handleAdopt}>Adopt {animal.name}</button>
             </div>
 
             <div>
-              <button onClick={handleSaveToFavorites}>
+              <button className="cta-button" onClick={handleSaveToFavorites}>
                 Add {animal.name} to favorites
               </button>
             </div>
@@ -130,9 +130,6 @@ function PetDetail({ pet }) {
       <div>
       
  
-    <div className="pet-detail-container">
-      {/* Component content */}
-    </div>
 
        <Link to="/favorites">Go to Favorites</Link>
   

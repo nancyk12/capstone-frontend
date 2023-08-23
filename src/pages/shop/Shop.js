@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../../redux/productSlice';
+import { addToCart } from '../../redux/shopItemSlice';
 import Axios from '../../lib/Axios';
 // import products from './products.json';
 //import './ShopB.css';
@@ -45,7 +45,7 @@ function Shop() {
   
   return (
     <div className="shop-container">
-    <h1 className=".shop-container h1">The Pet Supply Store</h1>
+    <h1 className=".shop-container h1">The Pet Supply Store, and Nancy</h1>
     <div className="shop-search-bar" >
       <input 
         type="text" 

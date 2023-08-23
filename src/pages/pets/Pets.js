@@ -133,7 +133,7 @@ function Pets() {
                </div>
                <div>
               <button onClick={handleSaveToFavorites}>
-                Add {animal.name} to favorites
+                Add {animal.name.substring(0, 20)} to favorites
               </button>
             </div>
              </Link>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout, authCheck } from "../redux/authSlice";
 import CustomShoppingCartIcon from "../components/CustomShoppingCartIcon";
@@ -59,6 +59,7 @@ export default function Layout() {
                   )}
                   </NavLink></li>
                  <li><NavLink to="/contact">Contact</NavLink></li>
+                 <li><NavLink to="/admin/summary">Admin</NavLink></li>
                  <li>
         {isAuth ? (
           <>

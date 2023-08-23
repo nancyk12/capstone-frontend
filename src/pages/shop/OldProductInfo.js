@@ -2,7 +2,7 @@
 // import { useState, useContext } from 'react';
 // import { useParams, Link } from 'react-router-dom';
 // import { useSelector, useDispatch } from 'react-redux';
-// import { addToCart } from '../../redux/productSlice';
+// import { addToCart } from '../../redux/shopItemSlice';
 // import products from './products.json';
 // import ShoppingCart from './ShoppingCart';
 

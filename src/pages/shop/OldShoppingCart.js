@@ -4,7 +4,7 @@
 //   removeFromCart,
 //   incrementQuantity,
 //   decrementQuantity,
-// } from '../../redux/productSlice';
+// } from '../../redux/shopItemSlice';
 // import { Link } from 'react-router-dom';
 // import './ShoppingCart.css';
 

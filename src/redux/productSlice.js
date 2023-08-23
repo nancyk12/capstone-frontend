@@ -1,54 +1,72 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import Axios from '../lib/Axios'
+import { url, setHeaders } from "./api";
+import { toast } from "react-toastify";
 
-const productSlice = createSlice({
-  name: 'cart',
-  initialState: [],
-  reducers: {
-    addToCart: (state, action) => {
-      const product = action.payload;
-      const existingProduct = state.find((item) => item._id === product._id);
+const initialState = {
+  items: [],
+  status: null,
+  createStatus: null,
+};
 
-      if (existingProduct) {
-        existingProduct.quantity += 1;
-      } else {
-        state.push({ ...product, quantity: 1 });
-      }
-    },
-    removeFromCart: (state, action) => {
-      const productId = action.payload;
-      return state.filter((item) => item._id !== productId);
-    },
+export const productsFetch = createAsyncThunk(
+  "products/productsFetch",
+  async () => {
+    try {
+      const response = await Axios.get(`${url}/products`);
 
-    removeAllFromCart: () => {
-      return [];
-    },
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
 
-    incrementQuantity: (state, action) => {
-      const productId = action.payload;
-      const product = state.find((item) => item._id === productId);
-      if (product) {
-        product.quantity += 1;
-      }
+export const productsCreate = createAsyncThunk(
+  "products/productsCreate",
+  async (values) => {
+    try {
+      const response = await Axios.post(
+        `${url}/products`,
+        values,
+        setHeaders()
+      );
+
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response?.data);
+    }
+  }
+);
+
+const productsSlice = createSlice({
+  name: "products",
+  initialState,
+  reducers: {},
+  extraReducers: {
+    [productsFetch.pending]: (state, action) => {
+      state.status = "pending";
     },
-    decrementQuantity: (state, action) => {
-      const productId = action.payload;
-      const product = state.find((item) => item._id === productId);
-      if (product) {
-        product.quantity -= 1;
-        if (product.quantity <= 0) {
-          return state.filter((item) => item._id !== productId);
-        }
-      }
+    [productsFetch.fulfilled]: (state, action) => {
+      state.items = action.payload;
+      state.status = "success";
+    },
+    [productsFetch.rejected]: (state, action) => {
+      state.status = "rejected";
+    },
+    [productsCreate.pending]: (state, action) => {
+      state.createStatus = "pending";
+    },
+    [productsCreate.fulfilled]: (state, action) => {
+      state.items.push(action.payload);
+      state.createStatus = "success";
+      toast.success("Product Created!");
+    },
+    [productsCreate.rejected]: (state, action) => {
+      state.createStatus = "rejected";
     },
   },
 });
 
-export const {
-  addToCart,
-  removeFromCart,
-  removeAllFromCart, 
-  incrementQuantity,
-  decrementQuantity,
-} = productSlice.actions;
-
-export default productSlice.reducer;
+export default productsSlice.reducer;
