@@ -93,7 +93,7 @@ const BlogForm = () => {
           />
           <ImageUpload onImageUpload={setBlogImage} />
         </div>
-        <button type="submit">Submit</button>
+        <button className="cta-button" type="submit">Submit</button>
         <div className="image-preview">
         {blogImage ? (
           <>

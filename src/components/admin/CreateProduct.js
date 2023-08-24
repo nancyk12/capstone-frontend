@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PrimaryButton } from "./CommonStyled";
 import { productsCreate } from "../../redux/productSlice";
+import {Cloudinary} from "@cloudinary/url-gen";
 
 const CreateProduct = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ const CreateProduct = () => {
   const [brand, setBrand] = useState("");
   const [description, setDescription] = useState("");
 
+
+ 
   const handleProductImageUpload = (e) => {
     const file = e.target.files[0];
 
@@ -56,6 +59,8 @@ const CreateProduct = () => {
     <StyledCreateProduct>
       <StyledForm onSubmit={handleSubmit}>
         <h3>Create a Product</h3>
+
+      
         <input
           id="imgUpload"
           accept="image/*"

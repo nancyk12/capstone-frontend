@@ -53,7 +53,8 @@ export const usersSlice = createSlice({
         firstname: '',
         lastname: '',
         message: '',
-        status: null
+        status: null,
+        isAdmin: false,
     },
     //syncronous set state
     reducers: {
@@ -73,7 +74,8 @@ export const usersSlice = createSlice({
                 firstname: '',
                 lastname: '',
                 message: 'User Logged Out!',
-                status: null
+                status: null,
+                isAdmin: false,
             }
         }
     },

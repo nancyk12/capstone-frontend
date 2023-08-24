@@ -4,6 +4,10 @@ import { useSelector } from "react-redux";
 
 const Dashboard = () => {
 
+    const users = useSelector((state) => state.users);
+
+    if (!users.isAdmin) return <p>Access denied. Not an Admin!</p>;
+
   return (
     <StyledDashboard>
       <SideNav>

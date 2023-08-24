@@ -29,7 +29,7 @@ function Home(){
       <div className="home-card">
         <h3>Online Pet Care Classes</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button>Learn More</button>
+        <Link to="/courses-layout"><button>Learn More</button></Link>
       </div>
       <div className="home-card">
         <h3>Online Store</h3>
@@ -39,7 +39,7 @@ function Home(){
       <div className="home-card">
         <h3>Blog</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <button>Learn More</button>
+        <Link to="/blog-list"><button>Learn More</button></Link>
       </div>
     </div>
        

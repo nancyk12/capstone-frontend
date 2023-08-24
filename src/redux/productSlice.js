@@ -14,6 +14,7 @@ export const productsFetch = createAsyncThunk(
   async () => {
     try {
       const response = await Axios.get(`${url}/products`);
+      // const response = await Axios.get('http://localhost:4008/api/products');
 
       return response.data;
     } catch (error) {
@@ -28,6 +29,7 @@ export const productsCreate = createAsyncThunk(
     try {
       const response = await Axios.post(
         `${url}/products`,
+        // 'http://localhost:4008/api/products',
         values,
         setHeaders()
       );

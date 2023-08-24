@@ -6,6 +6,7 @@ import CustomShoppingCartIcon from "../components/CustomShoppingCartIcon";
 import MenuIcon from '@mui/icons-material/Menu';
 // import Breadcrumbs from '../components/Breadcrumbs';
 import Footer from "../components/Footer"
+import { toast } from "react-toastify";
 
 
 export default function Layout() {
@@ -59,15 +60,23 @@ export default function Layout() {
                   )}
                   </NavLink></li>
                  <li><NavLink to="/contact">Contact</NavLink></li>
-                 <li><NavLink to="/admin/summary">Admin</NavLink></li>
+                 {/* <li><NavLink to="/admin/summary">Admin</NavLink></li> */}
                  <li>
         {isAuth ? (
+          <NavLink> 
+        
+            {user.isAdmin ? (
+              <div>
+                <NavLink to="/admin/summary">Dashboard</NavLink>
+              </div>
+            ) : null}
           <>
             <span>Hi, {user.firstname} </span>
             <NavLink to="/" onClick={handleLogout}>
               Sign-Out
             </NavLink>
           </>
+          </NavLink> 
         ) : (
           <NavLink to="/login">Login</NavLink>
         )}

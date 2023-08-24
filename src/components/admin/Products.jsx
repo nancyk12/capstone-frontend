@@ -8,11 +8,11 @@ const Products = () => {
     <>
       <AdminHeaders>
         <h2>Products</h2>
-        <PrimaryButton
+        <button className="cta-button"
           onClick={() => navigate("/admin/products/create-product")}
         >
           Create
-        </PrimaryButton>
+        </button>
       </AdminHeaders>
       <Outlet />
     </>
