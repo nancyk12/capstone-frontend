@@ -51,7 +51,7 @@ const BlogForm = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title</label>
-          <input
+          <input className="login-input-field"
             type="text"
             id="title"
             value={title}
@@ -61,7 +61,7 @@ const BlogForm = () => {
         </div>
         <div>
           <label htmlFor="text">Text</label>
-          <textarea
+          <textarea className='login-texterea-field'
             id="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
@@ -70,7 +70,7 @@ const BlogForm = () => {
         </div>
         <div>
           <label htmlFor="author">Author</label>
-          <input
+          <input className="login-input-field"
             type="text"
             id="author"
             value={author}
@@ -179,10 +179,3 @@ export default BlogForm;
 // };
 
 // export default BlogForm;
-
-
-
-
-
-
-

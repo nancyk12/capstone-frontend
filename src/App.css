@@ -146,7 +146,7 @@ footer {
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: auto;
   font-weight: 500;
   z-index: 100;
 }
@@ -241,6 +241,25 @@ main {
   background-color: #685454;
   border: 1px solid #FFFFFF;
 }
+
+.brown-cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #685454;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.brown-cta-button:hover {
+  background-color: #EA8A8A;
+  border: 1px solid #FFFFFF;
+}
+
 
 .about-us {
   background-color: #F5E4C3;
@@ -1274,77 +1293,225 @@ background-color: #beae9d;
 } 
 
 /* Blog */
+
+/*   
+input,
+textarea,
+button,
+select {
+  font: inherit;
+  margin-bottom: 1em;
+}
+.blog-container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.section {
+  margin-top: 2em;
+  max-width: 500px;
+  margin: auto;
+  height: 100%;
+}
+
+.article {
+  margin: 2em;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  font-size: 1.2rem;
+  margin: 0.5em 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  height: 200px;
+}
+
+.postCredit {
+  font-size: 1rem;
+}
+
+.postCredit a, 
+.postCredit a:visited {
+  margin-right: 0.5rem;
+  color: black;
+}
+
+.postCredit a:hover, 
+.postCredit a:focus {
+  color: hsla(0, 0%, 0%, 0.75);
+}
+
+.excerpt {
+  font-style: italic;
+}
+
+.reactionButton {
+  margin: 0 0.25em 0 0;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-size: 1rem;
+}
+
+.deleteButton {
+  background-color: palevioletred;
+  color: white;
+}
+
+
 .blog-link-wrapper {
-  color: unset;
-  text-decoration: unset;
+color: unset;
+text-decoration: unset;
 }
 
 .blog-list {
-  margin-top: 54px;
-  padding-inline: 26px;
+margin-top: 54px;
+padding-inline: 26px;
 }
 
 .blog-title {
-  margin-top: 54px;
-  padding-inline: 26px;
+margin-top: 54px;
+padding-inline: 26px;
 }
 
 .blog-single {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  margin-bottom: 15px;
-  padding-block: 18px;
-  padding-left: 24px;
+display: flex;
+align-items: center;
+background-color: white;
+margin-bottom: 15px;
+padding-block: 18px;
+padding-left: 24px;
 }
 
 .blog-single > img {
-  height: 300px;
-  border-radius: 5px;
-  margin-right: 17px;
+height: 300px;
+border-radius: 5px;
+margin-right: 17px;
 }
 
 .blog-info h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-block: 10px;
+font-size: 20px;
+font-weight: 600;
+margin-block: 10px;
 }
 
 .blog-info p {
-  margin-block: 10px;
-}
+margin-block: 10px;
+} */
 
 
 /* Single Blog Page */
 
-
+/* 
 .blog-single-layout-container {
-  background-color: white;
-  padding: 24px;
-  margin: 30px 26px;
+background-color: white;
+padding: 24px;
+margin: 30px 26px;
 }
 
 .blog-single {
-  display: flex;
-  align-items: center;
+display: flex;
+align-items: center;
 }
 
 .blog-single > img {
-  height: 160px;
-  border-radius: 5px;
-  margin-right: 20px;
+height: 160px;
+border-radius: 5px;
+margin-right: 20px;
 }
 
 .blog-single-info-text > h3 {
-  margin-top: 24px;
-  margin-bottom: 5px;
-  font-size: 26px;
-  font-weight: 700;
+margin-top: 24px;
+margin-bottom: 5px;
+font-size: 26px;
+font-weight: 700;
 }
 
 .blog-single-info-text > h4 {
-  font-size: 20px;
-  margin-block: 0;
+font-size: 20px;
+margin-block: 0;
+} */
+
+/*BlogForm*/
+/* .image-preview {
+margin: 2rem 0 2rem 2rem;
+padding: 2rem;
+border: 1px solid rgb(183, 183, 183);
+max-width: 300px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 2rem;
+color: rgb(78, 78, 78);
+
+img {
+  max-width: 100%;
+}
+} */
+
+/* Admin Dashboard */
+
+.dashboard {
+  display: flex;
+  height: 100%;
+}
+.dashboard-sidebar {
+  border-right: 1px solid gray;
+  height: calc(100vh - 70px);
+  position: fixed;
+  overflow-y: auto;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.dashboard h3 {
+  margin: 0 0 1rem 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+.dashboard a {    
+  text-decoration: none;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+
+.dashboard-content {
+  /* min-height: calc(100vh - 34px); */
+  flex-grow: 1;
+  margin-left: 200px;
+  padding: 2rem 3rem;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+
 }
 
 /* Admin */

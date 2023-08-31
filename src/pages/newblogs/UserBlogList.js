@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { fetchBlogs, selectAllBlogs } from '../../redux/blogSlice';
 import TimeAgo from './TimeAgo';
 import BlogReactionButtons from "./BlogReactionButtons";
-import BlogForm from "./BlogForm";
+
 import "./Blogs.css";
-import EditBlogForm from "./EditBlogForm";
+
 
 const BlogList = (  ) => {
 const blogs = useSelector(selectAllBlogs);
@@ -18,15 +18,11 @@ const dispatch = useDispatch();
 
   return (
     <div className="main-blog-container">
-    <div className="section">
-      <h1>Blog Form</h1>
-
-
-      <div >
-        {/* Create a button to to the BlogForm for admin use only*/ }
-        <BlogForm/>
+    
+      <div className="section">
+      
       </div>
-      <h1>Blog List</h1>
+      <h1>Pet Adoption Success Stories</h1>
       {/* <ul>
         {blogs.map((blog) => (
           <li key={blog.id}>
@@ -56,7 +52,6 @@ const dispatch = useDispatch();
             <p className="excerpt">{blog.text.substring(0, 75)}...</p>
             <div className="postCredit">
                 <Link to={`/blogs/get-one-blog/${blog.id}`}>View Post</Link>
-                <Link to={`/edit/${blog.id}`}>Edit Blog</Link>
                 {/* <PostAuthor userId={post.userId} /> */}
                 <span>{blog.author}</span>
                 <TimeAgo timestamp={blog.createAt} />
@@ -67,7 +62,6 @@ const dispatch = useDispatch();
         ))}
     </div>
   </div>
- </div>
   );
 };
 

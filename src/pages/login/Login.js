@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { login, resetStatus } from '../../redux/usersSlice';
 import { CircularProgress } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
@@ -13,11 +13,14 @@ export default function Login() {
   const status = useSelector((state) => state.users.status);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     if (status === 'fulfilled') {
       dispatch(resetStatus());
-      navigate('/', { replace: true });
+      // navigate('/', { replace: true });
+      // navigate(location?.state?.from ?? '/shop');
+      // console.log(location.state.previousUrl);
     }
   }, [status]);
 

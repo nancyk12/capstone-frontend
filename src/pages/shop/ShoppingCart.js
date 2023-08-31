@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   removeFromCart,
@@ -7,11 +8,14 @@ import {
   decrementQuantity,
 } from '../../redux/shopItemSlice';
 import { Link } from 'react-router-dom';
+import PayButton from './checkout/PayButton';
 //import ShoppingCartIcon from '../components/ShoppingCartIcon';
 
 function ShoppingCart() {
   const cartItems = useSelector((state) => state.cart);
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart(productId));
@@ -102,9 +106,22 @@ function ShoppingCart() {
               <p className="amount"> ${totalAmount.toFixed(2)}</p>
             </div>
             <p>Taxes and shipping calculated at checkout</p>
-            <Link to="/checkout" className="checkout-link">
+
+            {auth._id ? (
+                // <PayButton cartItems={cartItems.items} />
+                <Link to="/checkout" className="checkout-link">
                <button >Check out</button>
             </Link>   
+              ) : (
+                <button
+                  className="cart-login"
+                  onClick={() => navigate("/login")}
+                >
+                  Login to Check out
+                </button>
+              )}
+
+            
               <br/>
             <Link to="/shop">
               <span>⬅︎ Continue Shopping</span>

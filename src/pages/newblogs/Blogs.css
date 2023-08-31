@@ -1,5 +1,9 @@
 
-  
+  .main-blog-container {
+    width: 100%;
+    margin: 40px auto;
+    margin-top: 25px;
+  }
   input,
   textarea,
   button,
@@ -8,25 +12,27 @@
     margin-bottom: 1em;
   }
   .blog-container {
+    margin-top: 50px;
     max-width: 500px;
     margin: auto;
   }
   
   .section {
-    margin-top: 1em;
-    max-width: 500px;
-    margin: auto;
+    margin-top: 60px;
+    /* max-width: 500px;
+    margin: auto; */
   }
   
   .article {
-    margin: 0.5em;
+    margin: 2em;
     border: 1px solid #000;
     border-radius: 10px;
-    padding: 1em;
+    padding: 2em;
   }
   
   h1 {
     font-size: 3.5rem;
+    text-align: center;
   }
   
   h2 {
@@ -46,7 +52,7 @@
   }
   
   textarea {
-    height: 200px;
+    /* height: 200px; */
   }
   
   .postCredit {
@@ -93,24 +99,25 @@
 }
 
 .blog-title {
+  text-align: center;
   margin-top: 54px;
   padding-inline: 26px;
 }
 
-.blog-single {
+/* .blog-single {
   display: flex;
   align-items: center;
   background-color: white;
   margin-bottom: 15px;
   padding-block: 18px;
   padding-left: 24px;
-}
-
+} */
+/* 
 .blog-single > img {
   height: 300px;
   border-radius: 5px;
   margin-right: 17px;
-}
+} */
 
 .blog-info h3 {
   font-size: 20px;
@@ -126,13 +133,10 @@
 /* Single Blog Page */
 
 
-.blog-single-layout-container {
+.blog-single {
   background-color: white;
   padding: 24px;
   margin: 30px 26px;
-}
-
-.blog-single {
   display: flex;
   align-items: center;
 }

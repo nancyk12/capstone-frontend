@@ -1,6 +1,6 @@
 import { 
   createBrowserRouter,
-  Route, 
+  Routes, Route, 
   createRoutesFromElements,
   RouterProvider
 } from 'react-router-dom';
@@ -52,7 +52,7 @@ import BlogForm from "./pages/newblogs/BlogForm";
 import EditBlogForm from './pages/newblogs/EditBlogForm';
 import BlogList from './pages/newblogs/BlogList';
 import SingleBlogPage from './pages/newblogs/SingleBlogPage';
-
+import UserBlogList from './pages/newblogs/UserBlogList';
 //pets
 import Pets from "./pages/pets/Pets";
 import PetDetail from "./pages/pets/PetDetail";
@@ -73,6 +73,7 @@ import NotFound from './pages/NotFound';
 import RootLayout from "./layouts/RootLayout";
 import CourseLayout from "./layouts/CourseLayout";
 import BlogLayout from "./layouts/BlogLayout";
+
 
 
 function App() {
@@ -107,13 +108,12 @@ function App() {
         </Route> 
 
        {/* <Route path="/new-blogs" element={<BlogLayout/>}> */}
-        <Route path="blog-list" element={<BlogList/>}/>
-         
-          <Route path="blog-form" element={<BlogForm/>}/>
-          <Route path="blogs/get-one-blog/:id" element={<SingleBlogPage/>}/>
-          <Route path="edit/:blogId" element={<EditBlogForm/>}/>
-       {/* </Route> */}
-
+       <Route path="blog-list" element={<BlogList/>}/>
+       <Route path="user-blog-list" element={<UserBlogList/>}/>
+         <Route path="blog-form" element={<BlogForm/>}/>
+         <Route path="blogs/get-one-blog/:id" element={<SingleBlogPage/>}/>
+         <Route path="edit/:blogId" element={<EditBlogForm/>}/>
+      {/* </Route> */}
 
         <Route 
           path="login-home" 
@@ -131,14 +131,15 @@ function App() {
 
         <Route path="contact" element={<Contact />}></Route>
 
+        
         <Route path="admin" element={<Dashboard/>}>
           <Route path="products" element={<Products/>}>
             <Route path="create-product" element={<CreateProduct/>} />
           </Route>
+          <Route path="blog-list" element={<BlogList/>}/>
           <Route path="summary" element={<Summary/>}/>
       </Route>
-     
-
+      
         <Route path="*" element={<NotFound />}/>
       </Route>
   ))

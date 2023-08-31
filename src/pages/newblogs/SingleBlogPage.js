@@ -34,17 +34,35 @@ const error = useSelector(getBlogsError);
 
 
   return (
+    <div className="blog-single">
     <div className="artlicle">
       <h1>{singleBlog.title}</h1>
+      
+      <div >
+                {singleBlog.image !== null ?
+                <img
+                  // style={{ width: "300px", height: "300px" }}
+                  src={singleBlog.image} alt="blog"/> 
+                  : 
+                  <img 
+                  // style={{ width: "300px", height: "300px" }} 
+                  src="images/pet-photo-shoot.jpeg" alt="pet"/>}
+               </div> 
+
+
       <p>{singleBlog.text}</p>
       <p className="postCredit">
          {/* <Link to={`/edit/${SingleBlog._id}`}>Edit Post</Link> */}
          Author: {singleBlog.author}
         <TimeAgo timestamp={singleBlog.createAt}/>
       </p>
-      <Link to={`/edit/${singleBlog.id}`}>Edit Blog</Link> {/* Add link to Edit Blog page */}
+      {/* <Link to={`/edit/${singleBlog.id}`}>Edit Blog</Link> Add link to Edit Blog page */}
+      
+      <Link to={`/user-blog-list`}>Back to more Pet Adoption Success Stories</Link>
+
       <BlogReactionButtons blog={singleBlog}/>
     </div>
+   </div> 
   );
 };
 

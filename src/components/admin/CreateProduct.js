@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PrimaryButton } from "./CommonStyled";
 import { productsCreate } from "../../redux/productSlice";
+import UploadWidget from '../UploadWidget';
 import {Cloudinary} from "@cloudinary/url-gen";
 
 const CreateProduct = () => {
@@ -116,6 +117,7 @@ const CreateProduct = () => {
         </PrimaryButton>
       </StyledForm>
       <ImagePreview>
+        <div className = "container"><UploadWidget/></div>
         {productImg ? (
           <>
             <img src={productImg} alt="error!" />

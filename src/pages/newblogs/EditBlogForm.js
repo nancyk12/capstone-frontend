@@ -168,10 +168,11 @@ const EditBlogForm = () => {
 
     return (
         <div className="section">
+        <div className="blog-container">
             <h2>Edit Blog</h2>
             <form>
                 <label htmlFor="blogTitle">Blog Title:</label>
-                <input
+                <input className="login-input-field"
                     type="text"
                     id="blogTitle"
                     name="blogTitle"
@@ -186,13 +187,13 @@ const EditBlogForm = () => {
                 </select> */}
 
                 <label htmlFor="blogText">Text:</label>
-                <textarea
+                <textarea className="login-texterea-field"
                     id="blogText"
                     name="blogText"
                     value={text}
                     onChange={onTextChanged}
                 />
-               <button
+               <button className="cta-button"
                     type="button"
                     onClick={onSaveBlogClicked}
                     // disabled={!canSave}
@@ -200,7 +201,7 @@ const EditBlogForm = () => {
                     Save Blog
                 </button>
 
-                <button className="deleteButton"
+                <button className="brown-cta-button"
                     type="button"
                     onClick={onDeleteBlogClicked}
                 >
@@ -208,6 +209,7 @@ const EditBlogForm = () => {
                 </button>
             </form>
         </div>
+    </div>
     )
 }
 

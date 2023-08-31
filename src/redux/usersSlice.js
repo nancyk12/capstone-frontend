@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createSelector, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit'
+import { apiSlice } from './apiSlice'
 import Axios from '../lib/Axios'
 import { authSuccess } from './authSlice'
 
@@ -135,3 +136,28 @@ export const usersSlice = createSlice({
  export const { setUser, resetStatus, resetUser } = usersSlice.actions
 
 export default usersSlice.reducer
+
+//for the blogs
+
+const usersAdapter = createEntityAdapter()
+
+const initialState = usersAdapter.getInitialState()
+
+export const usersApiSlice = apiSlice.injectEndpoints({
+    endpoints: builder => ({
+        getUsers: builder.query({
+            query: () => '/users',
+            transformResponse: responseData => {
+                return usersAdapter.setAll(initialState, responseData)
+            },
+            providesTags: (result, error, arg) => [
+                { type: 'User', id: "LIST" },
+                ...result.ids.map(id => ({ type: 'User', id }))
+            ]
+        })
+    })
+})
+
+export const {
+    useGetUsersQuery
+} = usersApiSlice

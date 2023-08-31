@@ -1,13 +1,18 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 //import { Box, Container, Typography, Button } from '@mui/material'
 import {useSelector, useDispatch} from 'react-redux'
 import {authCheck, logout} from '../../redux/authSlice'
+// import { useLocation } from 'react-router-dom'
 
 const LoginHome = () => {
   const dispatch = useDispatch()
   const isAuth = useSelector( state => state.auth.isAuth )
   const user = useSelector( state => state.users )
+  // const location = useLocation()
 
+  // useEffect(() => {
+  //   console.log(location);
+  // });
 
 
   const handleLogout = () => {

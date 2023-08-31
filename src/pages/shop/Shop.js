@@ -9,6 +9,10 @@ import Axios from '../../lib/Axios';
 function Shop() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
+  const auth = useSelector((state) => state.auth);
+
+  console.log(auth);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [products, setProducts] = useState([]);
 
@@ -45,7 +49,7 @@ function Shop() {
   
   return (
     <div className="shop-container">
-    <h1 className=".shop-container h1">The Pet Supply Store, and Nancy</h1>
+    <h1 className=".shop-container h1">The Pet Supply Store</h1>
     <div className="shop-search-bar" >
       <input 
         type="text" 
