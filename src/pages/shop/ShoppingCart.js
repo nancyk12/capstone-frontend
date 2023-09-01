@@ -107,19 +107,19 @@ function ShoppingCart() {
             </div>
             <p>Taxes and shipping calculated at checkout</p>
 
-            {auth._id ? (
-                // <PayButton cartItems={cartItems.items} />
+            {/* {auth._id ? ( */}
+                 {/* <PayButton cartItems={cartItems.items} /> */}
                 <Link to="/checkout" className="checkout-link">
                <button >Check out</button>
             </Link>   
-              ) : (
+              {/* ) : (
                 <button
                   className="cart-login"
                   onClick={() => navigate("/login")}
                 >
                   Login to Check out
                 </button>
-              )}
+              )} */}
 
             
               <br/>

@@ -19,7 +19,7 @@ export default function Login() {
     if (status === 'fulfilled') {
       dispatch(resetStatus());
       // navigate('/', { replace: true });
-      // navigate(location?.state?.from ?? '/shop');
+    navigate(location.state?.from ?? '/shop');
       // console.log(location.state.previousUrl);
     }
   }, [status]);
