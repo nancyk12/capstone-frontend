@@ -673,7 +673,7 @@ i[class*='pet-type-'] {
   /*  PetDetail Page*/
   .pet-detail-container {
     max-width: 1200px;
-    width: 100%;
+    width: 800px;
     margin: 30px auto;
     padding-top: 5rem;
     padding: 27px;
@@ -687,12 +687,9 @@ i[class*='pet-type-'] {
     text-decoration: none;
 }
   
-.pet-detail-container .back-button:visited {
-      
-}
-  
 .pet-detail-container .back-button span {
     text-decoration: underline;
+    align-items: center;
 }
   
 .pet-detail-img {
@@ -1292,182 +1289,7 @@ background-color: #beae9d;
   margin: 20px 0;
 } 
 
-/* Blog */
 
-/*   
-input,
-textarea,
-button,
-select {
-  font: inherit;
-  margin-bottom: 1em;
-}
-.blog-container {
-  max-width: 500px;
-  margin: auto;
-}
-
-.section {
-  margin-top: 2em;
-  max-width: 500px;
-  margin: auto;
-  height: 100%;
-}
-
-.article {
-  margin: 2em;
-  border: 1px solid #000;
-  border-radius: 10px;
-  padding: 1em;
-}
-
-h1 {
-  font-size: 3.5rem;
-}
-
-h2 {
-  margin-bottom: 1rem;
-}
-
-p {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-  font-size: 1.2rem;
-  margin: 0.5em 0;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-textarea {
-  height: 200px;
-}
-
-.postCredit {
-  font-size: 1rem;
-}
-
-.postCredit a, 
-.postCredit a:visited {
-  margin-right: 0.5rem;
-  color: black;
-}
-
-.postCredit a:hover, 
-.postCredit a:focus {
-  color: hsla(0, 0%, 0%, 0.75);
-}
-
-.excerpt {
-  font-style: italic;
-}
-
-.reactionButton {
-  margin: 0 0.25em 0 0;
-  background: transparent;
-  border: none;
-  color: #000;
-  font-size: 1rem;
-}
-
-.deleteButton {
-  background-color: palevioletred;
-  color: white;
-}
-
-
-.blog-link-wrapper {
-color: unset;
-text-decoration: unset;
-}
-
-.blog-list {
-margin-top: 54px;
-padding-inline: 26px;
-}
-
-.blog-title {
-margin-top: 54px;
-padding-inline: 26px;
-}
-
-.blog-single {
-display: flex;
-align-items: center;
-background-color: white;
-margin-bottom: 15px;
-padding-block: 18px;
-padding-left: 24px;
-}
-
-.blog-single > img {
-height: 300px;
-border-radius: 5px;
-margin-right: 17px;
-}
-
-.blog-info h3 {
-font-size: 20px;
-font-weight: 600;
-margin-block: 10px;
-}
-
-.blog-info p {
-margin-block: 10px;
-} */
-
-
-/* Single Blog Page */
-
-/* 
-.blog-single-layout-container {
-background-color: white;
-padding: 24px;
-margin: 30px 26px;
-}
-
-.blog-single {
-display: flex;
-align-items: center;
-}
-
-.blog-single > img {
-height: 160px;
-border-radius: 5px;
-margin-right: 20px;
-}
-
-.blog-single-info-text > h3 {
-margin-top: 24px;
-margin-bottom: 5px;
-font-size: 26px;
-font-weight: 700;
-}
-
-.blog-single-info-text > h4 {
-font-size: 20px;
-margin-block: 0;
-} */
-
-/*BlogForm*/
-/* .image-preview {
-margin: 2rem 0 2rem 2rem;
-padding: 2rem;
-border: 1px solid rgb(183, 183, 183);
-max-width: 300px;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 2rem;
-color: rgb(78, 78, 78);
-
-img {
-  max-width: 100%;
-}
-} */
 
 /* Admin Dashboard */
 
@@ -1855,34 +1677,6 @@ img {
     margin-right: 0.2rem;
     margin-left: 0.2rem;
   }
-
-  /* .pet-list {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-top: 30px;
-  }
-
-  .pet-tile {
-    width: 100%;
-    padding: 10px;
-    box-shadow: none;
-    border-radius: 0;
-    margin-bottom: 10px;
-  }
-
-  .pet-tile img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .pet-info {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .pet-list-container {
-    margin-top: 20px;
-  } */
 }
 
   
@@ -1900,38 +1694,39 @@ img {
   
 
   /* Pet Detail */
-  @media (min-width: 481px) and (max-width: 768px) {
+  @media  (max-width: 768px) {
     .pet-detail-container {
+      max-width: 500px;
+      width: 90%;
+      display: flex;
+      justify-content: center;
       flex-direction: column;
       align-items: center;
+      margin: 20px;
+    }
+
+    .pet-detail-container .list-group {
+      max-width: "700px";
     }
   
     .pet-detail-img {
       margin-block: 20px;
-      width: 600px;
+      width: 350px;
     }
   
     .pet-detail {
-      width: 95%;
+      max-width: 500px;
       text-align: center;
       margin: 20px;
     }
+
+    .pet-detail p {
+      max-width: "500px";   
+    }
+    
   }
 
-  @media (max-width: 480px) {
-    .pet-detail-container {
-      margin: 10px;
-    }
-  
-    .pet-detail-img {
-      margin-block: 10px;
-      width: 95%;
-    }
-  
-    .pet-detail {
-      text-align: center;
-    }
-  }
+
     
   
 

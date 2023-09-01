@@ -132,9 +132,9 @@ function Pets() {
                 {/* <i className={`pet-type ${animal.type} selected`}>{animal.type}</i> */}
                </div>
                <div>
-              <button onClick={handleSaveToFavorites}>
+              {/* <button onClick={handleSaveToFavorites}>
                 Add {animal.name.substring(0, 20)} to favorites
-              </button>
+              </button> */}
             </div>
              </Link>
               {/* <HeartIconClick
@@ -147,7 +147,7 @@ function Pets() {
 			</div>
 		</div>
       <br/>
-      <Link to="/favorites">Go to Favorites</Link>
+      {/* <Link to="/favorites">Go to Favorites</Link> */}
 	</div>
 	)				
 }

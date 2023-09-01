@@ -122,21 +122,19 @@ function PetDetail({ pet }) {
                 Add {animal.name} to favorites
               </button>
             </div>
+            <div >
+       <Link to="/favorites">Go to Favorites</Link>
+     </div>
+      <div className="pet-detail-link">
+          <Link to="/pets">Back to Filtered Pets</Link>
+        </div>
           </div>
         ) : (
           <h2>Loading...</h2>
         )}
+
       </div>
-      <div>
-      
- 
 
-       <Link to="/favorites">Go to Favorites</Link>
-  
-
-
-        <Link to="/pets">Back to Filtered Pets</Link>
-      </div>
     </>
   );
 }

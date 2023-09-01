@@ -38,14 +38,14 @@ const error = useSelector(getBlogsError);
     <div className="artlicle">
       <h1>{singleBlog.title}</h1>
       
-      <div >
+      <div className="blog-single">
                 {singleBlog.image !== null ?
-                <img
-                  // style={{ width: "300px", height: "300px" }}
+                <img 
+                  style={{ align: "center", width: "465px" }}
                   src={singleBlog.image} alt="blog"/> 
                   : 
                   <img 
-                  // style={{ width: "300px", height: "300px" }} 
+                  style={{ width: "465px"}} 
                   src="images/pet-photo-shoot.jpeg" alt="pet"/>}
                </div> 
 

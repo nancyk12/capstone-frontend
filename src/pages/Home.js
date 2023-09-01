@@ -10,7 +10,7 @@ function Home(){
       <h1>All you need is love … And a pet</h1>
       <div className="hero-bottom">
         <p>Search for your new best friend. </p>
-        <button className="cta-button">Adopt Now</button>
+        <Link to="/pets"><button className="cta-button">Adopt Now</button></Link>
       </div>  
     </div>
        
