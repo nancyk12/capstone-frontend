@@ -24,6 +24,8 @@ import Dashboard from './components/admin/Dashboard';
 import Products from './components/admin/Products';
 import Summary from './components/admin/Summary';
 import CreateProduct from './components/admin/CreateProduct';
+import Users from './components/admin/Users';
+import Orders from './components/admin/Orders';
 
 //pages
 import Home from "./pages/Home";
@@ -138,6 +140,8 @@ function App() {
           </Route>
           <Route path="blog-list" element={<BlogList/>}/>
           <Route path="summary" element={<Summary/>}/>
+          <Route path="users" element={<Users/>}/>
+          <Route path="orders" element={<Orders/>}/>
       </Route>
       
         <Route path="*" element={<NotFound />}/>
