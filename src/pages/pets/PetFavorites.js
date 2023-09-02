@@ -10,7 +10,7 @@ function PetFavorites() {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await Axios.get("http://localhost:4008/favorites");
+        const response = await Axios.get("/favorites");
         setFavorites(response.data.favorites);
       } catch (error) {
         console.error("Error fetching favorites:", error);
@@ -22,7 +22,7 @@ function PetFavorites() {
 
   const removeFromFavorites = async (animalId) => {
     try {
-      await Axios.delete(`http://localhost:4008/favorites/${animalId}`);
+      await Axios.delete(`/favorites/${animalId}`);
       setFavorites((prevFavorites) =>
         prevFavorites.filter((favorite) => favorite.id !== animalId)
       );

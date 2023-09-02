@@ -1,4 +1,4 @@
-export const url = "http://localhost:4008/api";
+export const url = "/api";
 
 export const setHeaders = () => {
   const headers = {

@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 export const Axios = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL
+    baseURL: process.env.REACT_APP_BASE_URL === 'development' ? 'http://localhost:4008/api' : '/api'
+    // baseURL: process.env.REACT_APP_BASE_URL
 })
 
 export default Axios
